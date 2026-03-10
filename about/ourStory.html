@@ -19,58 +19,201 @@
 </head>
 <body class="text-slate-800">
 
-<!-- HEADER -->
-<header class="sticky top-0 z-50 bg-[#000000]">
-  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-1 mr-auto">
-      <button id="mobileMenuBtn" class="md:hidden p-2 text-white" aria-label="Open menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-      <a href="../index.html" class="flex items-center shrink-0">
-        <img src="../assets/images/WAWithoutText2.png?v=1" alt="Watchdog Logo" class="h-8 md:h-12 w-auto object-contain"/>
-        <img src="../assets/images/WANeutral2.png?v=1" alt="Watchdog Text" class="h-8 md:h-12 w-auto object-contain"/>
-      </a>
-    </div>
-    <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
-      <div class="relative group">
-        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">About Us<svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg></button>
-        <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
-          <ul class="py-2">
-            <li><a href="./ourStory.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Story</a></li>
-            <li><a href="./howWeWork.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">How We Work</a></li>
-            <li><a href="./ourPartners.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Partners</a></li>
-          </ul>
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+    <header class="sticky top-0 z-50 bg-[#000000]">
+      <div
+        class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between"
+      >
+        <!-- Left: Hamburger + Logo -->
+        <div class="flex items-center gap-1 mr-auto">
+          <button
+            id="mobileMenuBtn"
+            class="md:hidden p-2 text-white"
+            aria-label="Open menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <a href="#" class="flex items-center shrink-0">
+            <img
+              src="./assets/images/WAWithoutText2.png?v=1"
+              alt="Watchdog Logo"
+              class="h-8 md:h-12 w-auto object-contain"
+            />
+            <img
+              src="./assets/images/WANeutral2.png?v=1"
+              alt="Watchdog Text"
+              class="h-8 md:h-12 w-auto object-contain"
+            />
+          </a>
+        </div>
+
+        <!-- Center: Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
+          <!--<a class="px-4 py-2 text-white hover:text-slate-300" href="#hero">Home</a>-->
+
+          <div class="relative group">
+            <button
+              class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300"
+            >
+              About Us
+              <!-- ARROW -->
+              <svg
+                class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M5 7l5 5 5-5H5z" />
+              </svg>
+            </button>
+            <div
+              class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+            >
+              <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
+              <ul class="py-2">
+                <li>
+                  <a
+                    href="./about/ourStory.html"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Our Story</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="./about/howWeWork.html"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >How We Work</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="./about/ourPartners.html"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Our Partners</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="relative group">
+            <button
+              class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300"
+            >
+              Projects
+              <!-- ARROW -->
+              <svg
+                class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M5 7l5 5 5-5H5z" />
+              </svg>
+            </button>
+            <div
+              class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+            >
+              <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
+              <ul class="py-2">
+                <li>
+                  <a
+                    href="#projects"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Featured Projects</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Case Studies</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="relative group">
+            <button
+              class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300"
+            >
+              Careers
+              <!-- ARROW -->
+              <svg
+                class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M5 7l5 5 5-5H5z" />
+              </svg>
+            </button>
+            <div
+              class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+            >
+              <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
+              <ul class="py-2">
+                <li>
+                  <a
+                    href="#careers"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Internship / On-the-Job Training</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#careers"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Engineering</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#careers"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Finance</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#careers"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Marketing</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#careers"
+                    class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >Management</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!--<a class="px-4 py-2 text-white hover:text-slate-300" href="#partnerships">Partners</a>-->
+        </nav>
+
+        <!-- Right: Contact Us -->
+        <div class="flex justify-end">
+          <a
+            href="#contact"
+            class="hidden md:inline-flex items-center justify-center rounded-md bg-[#ac0505] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
-      <div class="relative group">
-        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">Projects<svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg></button>
-        <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
-          <ul class="py-2">
-            <li><a href="../index.html#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Featured Projects</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="relative group">
-        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">Careers<svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg></button>
-        <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
-          <ul class="py-2">
-            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Internship / On-the-Job Training</a></li>
-            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Engineering</a></li>
-            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Finance</a></li>
-            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Marketing</a></li>
-            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Management</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="flex justify-end">
-      <a href="../index.html#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#ac0505] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">Contact Us</a>
-    </div>
-  </div>
-</header>
+    </header>
+
 
 <!-- MOBILE DRAWER OVERLAY -->
 <div id="drawerOverlay" class="fixed inset-0 bg-black/60 z-[998] hidden md:hidden" aria-hidden="true"></div>
