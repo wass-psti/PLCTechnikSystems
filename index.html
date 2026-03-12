@@ -688,7 +688,7 @@
                 <input type="text" name="_honey" style="display:none">
                 <!--<input type="hidden" name="_replyto" value="email">-->
                 <input
-                  type="hidden" name="_next" value="https://wass-psti.github.io/WatchdogAutomationWeb/thankYou.html"
+                  type="hidden" name="_next" value="https://wass-psti.github.io/PLCTechnikSystems/thankYou.html"
                 />
                 <!-- formsubmit name integration  -->
                 <label class="grid gap-1">
@@ -822,7 +822,7 @@
               <li class="text-slate-400">Building 2, Paseo De Amores, Gun-ob,</li>
               <li class="text-slate-400">Lapu-Lapu City, Cebu, Philippines</li>
               <li><a href="tel:+639178883003" class="hover:text-white">+63 917 888 3003</a></li>
-              <li><a href="mailto:info@watchdogautomation.com" class="hover:text-white">info@watchdogautomation.com</a></li>
+              <li><a href="mailto:info@plcsystems.com.ph" class="hover:text-white">info@plcsystems.com.ph</a></li>
               <li class="pt-2">
                 <a href="#contact" class="inline-block rounded-xl bg-[#009a9b] px-4 py-2 text-sm font-semibold text-white hover:bg-[#EBE33B] transition-colors">Get in Touch</a>
               </li>
@@ -873,93 +873,6 @@
         </script>
         <!-- FormSubmit script -->
 
-    <!-- ═══════════════════ ANTI-BOT / HONEYPOT SCRIPTS ═══════════════════ -->
-    <script>
-    (function () {
-      // ── Layer 1: Honeypot field check ──
-      // If either hidden field is filled, it's a bot — silently reject.
-      function honeypotTriggered() {
-        var hp1 = document.getElementById("hp_website");
-        var hp2 = document.getElementById("hp_phone");
-        return (hp1 && hp1.value.trim() !== "") ||
-               (hp2 && hp2.value.trim() !== "");
-      }
-      
-      // ── Layer 2: Timing check ──
-      // Humans take at least ~2 seconds to fill a form. Bots submit instantly.
-      var formLoadTime = Date.now();
-      var MIN_FILL_TIME_MS = 2500;
-      
-      
-      // ── Layer 3: Interaction check ──
-      // Bots never move the mouse or press keys. Track if user interacted.
-      var humanInteracted = false;
-      ["mousemove", "keydown", "touchstart", "click", "scroll"].forEach(function (evt) {
-        document.addEventListener(evt, function () { humanInteracted = true; }, { once: true, passive: true });
-      });
-
-      
-      // ── Submit handler ──
-      var btn = document.getElementById("submitBtn");
-      var status = document.getElementById("formStatus");
-
-      
-      if (btn) {
-        btn.addEventListener("click", function () {
-          var name    = (document.getElementById("from_name")    || {}).value || "";
-          var email   = (document.getElementById("from_email")   || {}).value || "";
-          var inquiry = (document.getElementById("inquiry_type") || {}).value || "";
-          var message = (document.getElementById("message")      || {}).value || "";
-
-          // Basic required-field validation
-          if (!name.trim() || !email.trim() || !inquiry || !message.trim()) {
-            status.textContent = "Please fill in all required fields.";
-            status.style.color = "#dc2626";
-            return;
-          }
-
-          // Honeypot check
-          if (honeypotTriggered()) {
-            // Silently fake success so bots think it worked
-            status.textContent = "Message sent! We'll be in touch soon.";
-            status.style.color = "#009a9b";
-            return;
-          }
-
-          // Timing check
-          var elapsed = Date.now() - formLoadTime;
-          if (elapsed < MIN_FILL_TIME_MS) {
-            // Silently fake success
-            status.textContent = "Message sent! We'll be in touch soon.";
-            status.style.color = "#009a9b";
-            return;
-          }
-
-          // Interaction check
-          if (!humanInteracted) {
-            status.textContent = "Message sent! We'll be in touch soon.";
-            status.style.color = "#009a9b";
-            return;
-          }
-
-          // ── All checks passed: real human submission ──
-          // Wire your EmailJS / Formspree / fetch here.
-          // Example placeholder — replace with your actual send logic:
-          btn.disabled = true;
-          btn.textContent = "Sending…";
-          status.textContent = "";
-
-          // TODO: replace this timeout with your actual API call
-          setTimeout(function () {
-            status.textContent = "Message sent! We'll be in touch soon.";
-            status.style.color = "#009a9b";
-            btn.disabled = false;
-            btn.textContent = "Send Message";
-          }, 800);
-        });
-      }
-    })();
-    </script>
 
   </body>
 </html>
