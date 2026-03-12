@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Received — PSTI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --primary: #0eb097;
+      --primary-dark: #0a8a76;
+      --primary-light: rgba(14,176,151,0.08);
+      --primary-border: rgba(14,176,151,0.2);
+      --ink: #0f1f1c;
+      --ink-muted: #4a6562;
+      --ink-faint: #a8bfbc;
+      --surface: #f4faf9;
+      --divider: #e0efed;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── Subtle teal tinted background ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 110% -10%, rgba(14,176,151,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at -10% 110%, rgba(14,176,151,0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Page ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.5rem 2rem;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      width: 100%;
+      margin-bottom: 2.8rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--divider);
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-wordmark {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ── Success badge ── */
+    .success-ring {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      border: 2px solid var(--primary-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: scaleIn 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.3s forwards;
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ── Main ── */
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 540px;
+      flex: 1;
+    }
+
+    /* ── Tag ── */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.5s forwards;
+    }
+
+    .tag::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.35; transform: scale(0.65); }
+    }
+
+    /* ── Heading ── */
+    h1 {
+      font-weight: 800;
+      font-size: clamp(2.4rem, 9vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.6s forwards;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--primary);
+      display: block;
+    }
+
+    /* ── Thin rule ── */
+    .rule {
+      width: 48px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin: 1.4rem auto 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.5s ease 0.75s forwards;
+    }
+
+    /* ── Body copy ── */
+    .body-copy {
+      font-size: 0.95rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      max-width: 440px;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.8s forwards;
+    }
+
+    .body-copy strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* ── Email chip ── */
+    .email-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      padding: 0.65rem 1.3rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.9s forwards;
+      word-break: break-all;
+    }
+
+    .email-chip svg { flex-shrink: 0; }
+
+    /* ── Checklist card ── */
+    .checklist-card {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 1s forwards;
+    }
+
+    .check-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+    }
+
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      border: 1.5px solid var(--primary-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── Stagger check items ── */
+    .check-wrap:nth-child(1) { animation: slideIn 0.4s ease 1.1s both; }
+    .check-wrap:nth-child(2) { animation: slideIn 0.4s ease 1.25s both; }
+    .check-wrap:nth-child(3) { animation: slideIn 0.4s ease 1.4s both; }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-10px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ── Actions ── */
+    .actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 1.5s forwards;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex: 1;
+      min-width: 140px;
+      max-width: 220px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(14,176,151,0.25);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary-border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 1.7s forwards;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      .page { padding: 1.8rem 1.2rem 1.5rem; }
+      .logo-icon     { height: 48px; }
+      .logo-wordmark { height: 40px; }
+      h1 { font-size: clamp(2rem, 11vw, 2.8rem); }
+      .body-copy { font-size: 0.88rem; }
+      .email-chip { font-size: 0.78rem; padding: 0.6rem 1rem; }
+      .checklist-card { padding: 1.2rem; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .btn-primary,
+      .btn-secondary { max-width: 100%; min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Header -->
+    <header>
+      <img src="./assets/pictures/PLCLogo.png?v=1" alt="PLC Logo" class="logo-icon" />
+      <div class="logo-divider"></div>
+      <img src="./assets/pictures/PSTILogo2.png?v=1" alt="PSTI Logo" class="logo-wordmark" />
+    </header>
+
+    <!-- Main -->
+    <main>
+
+      <!-- Animated check ring -->
+      <div class="success-ring">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#0eb097" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="16" r="13" stroke-opacity="0.25"/>
+          <polyline points="9,16 14,21 23,11"/>
+        </svg>
+      </div>
+
+      <div class="tag">Message Sent</div>
+
+      <h1>
+        Thank you
+        <em>for reaching out.</em>
+      </h1>
+
+      <div class="rule"></div>
+
+      <p class="body-copy">
+        Your message has been delivered to
+        <strong>info@watchdogautomation.com.ph</strong>.
+        Our team will review your inquiry and get back to you as soon as possible —
+        usually within one business day.
+      </p>
+
+      <div class="email-chip">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0eb097" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info@watchdogautomation.com.ph
+      </div>
+
+      <div class="checklist-card">
+        <div class="check-wrap">
+          <div class="check-icon">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="#0eb097" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          Message delivered successfully
+        </div>
+        <div class="check-wrap">
+          <div class="check-icon">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="#0eb097" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          Team notified and on it
+        </div>
+        <div class="check-wrap">
+          <div class="check-icon">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="#0eb097" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          Expect a reply within 1 business day
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="./index.html" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9L12 2l9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+          Back to Home
+        </a>
+        <a href="./index.html#contact" class="btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Send Another
+        </a>
+      </div>
+
+    </main>
+
+    <footer>© 2026 PSTI. All rights reserved.</footer>
+
+  </div>
+
+</body>
+</html>
