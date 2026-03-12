@@ -619,68 +619,155 @@
     <section id="contact" class="bg-slate-950 text-white">
       <div class="mx-auto max-w-7xl px-4 py-14">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+          <!-- LEFT COLUMN: Info + Map -->
           <div class="lg:col-span-6">
-            <h2 class="text-3xl font-extrabold tracking-tight">Talk to us about your automation scope.</h2>
-            <p class="mt-3 text-slate-300 max-w-2xl">Reach out for projects, careers, or general inquiries. We'll reply with clarifying questions and next steps.</p>
+            <h2 class="text-3xl font-extrabold tracking-tight">
+              Talk to us about your automation scope.
+            </h2>
+            <p class="mt-3 text-slate-300 max-w-2xl">
+              Reach out for projects, careers, or general inquiries. We'll reply
+              with clarifying questions and next steps.
+            </p>
             <div class="mt-6 grid gap-3 text-sm text-slate-300">
-              <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@watchdogautomation.com">info@watchdogautomation.com</a></div>
-              <div><span class="font-semibold text-white">Phone No.:</span> <a class="underline hover:text-white" href="tel:+639178883003">+63 917 888 3003</a></div>
-              <div><span class="font-semibold text-white">Address:</span> Bldg. 2, Paseo De Amores, Gun-ob, Lapu-Lapu City, Philippines, 6015</div>
+              <div>
+                <span class="font-semibold text-white">Email:</span>
+                <a
+                  class="underline hover:text-white"
+                  href="mailto:info@watchdogautomation.com"
+                  >info@plcsystems.com.ph</a
+                >
+              </div>
+              <div>
+                <span class="font-semibold text-white">Phone No.:</span>
+                <a class="underline hover:text-white" href="tel:+639178883003"
+                  >+63 917 888 3003</a
+                >
+              </div>
+              <div>
+                <span class="font-semibold text-white">Address:</span> Bldg. 2,
+                Paseo De Amores, Gun-ob, Lapu-Lapu City, Philippines, 6015
+              </div>
             </div>
-            <div class="mt-6 rounded-2xl overflow-hidden border border-slate-700 w-full">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph" width="100%" height="280" style="border: 0; display: block; width: 100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <!-- Google Maps -->
+            <div
+              class="mt-6 rounded-2xl overflow-hidden border border-slate-700 w-full"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph"
+                width="100%"
+                height="280"
+                style="border: 0; display: block; width: 100%"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
             </div>
           </div>
+          <!-- END LEFT COLUMN -->
 
+          <!-- RIGHT COLUMN: Contact Form -->
           <div class="lg:col-span-6">
             <div class="rounded-3xl bg-white text-slate-900 p-6">
               <div class="font-extrabold text-xl">Contact Us</div>
               <p class="mt-1 text-sm text-slate-600">Reach out to us!</p>
-              <form id="contactForm" class="mt-5 grid gap-3" autocomplete="off">
+              
+              <!-- formsubmit form integration -->
+              <form
+                  id="contactForm"
+                  action="https://formsubmit.co/info@plcsystems.com.ph"
+                  method="POST"
+                  class="mt-5 grid gap-3"
+                >
+                <!-- end of formsubmit form integration -->
 
-                <!-- ╔═ HONEYPOT TRAP 1: "website" field — invisible to humans, irresistible to bots ═╗ -->
-                <div class="hp-field" aria-hidden="true">
-                  <label for="hp_website">Website</label>
-                  <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off" />
-                </div>
-
-                <!-- ╔═ HONEYPOT TRAP 2: "phone_number" field — common bot target ═╗ -->
-                <div class="hp-field" aria-hidden="true">
-                  <label for="hp_phone">Phone</label>
-                  <input type="text" id="hp_phone" name="phone_number" tabindex="-1" autocomplete="off" />
-                </div>
-
+                <!-- hidden subject field -->
+                <input type="hidden" name="_subject" id="subjectField">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" style="display:none">
+                <!--<input type="hidden" name="_replyto" value="email">-->
+                <input
+                  type="hidden" name="_next" value="https://wass-psti.github.io/WatchdogAutomationWeb/thankYou.html"
+                />
+                <!-- formsubmit name integration  -->
                 <label class="grid gap-1">
-                  <span class="text-sm font-semibold">Name</span>
-                  <input id="from_name" name="contact_name" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" required autocomplete="name" />
+                  <span class="text-sm font-semibold">Name</span>  
+                  <input name="name" id="from_name"
+                    class="rounded-xl border border-slate-300 px-3 py-2"
+                    placeholder="Your name"
+                    required
+                  />     
                 </label>
+                <!-- end of formsubmit name integration -->
+
+                <!-- formsubmit email integration  -->
                 <label class="grid gap-1">
                   <span class="text-sm font-semibold">Email</span>
-                  <input type="email" id="from_email" name="contact_email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" required autocomplete="email" />
+                  <input
+                    type="email"
+                    name="email"
+                    id="from_email"
+                    class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    placeholder="you@company.com"
+                    required
+                  />
                 </label>
+                <!-- end of formsubmit email integration -->
+
+                <!-- formsubmit inquiry type integration  -->
                 <label class="grid gap-1">
                   <span class="text-sm font-semibold">Type of Inquiry</span>
-                  <select id="inquiry_type" name="inquiry_type" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-white text-slate-900" required>
-                    <option value="" disabled selected>Select inquiry type…</option>
+                  <select
+                    name="inquiry_type"
+                    id="inquiry_type"
+                    class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-white text-slate-900"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select inquiry type…
+                    </option>
                     <option value="Consultation">Consultation</option>
-                    <option value="JobApplication">Internship/Job Application</option>
+                    <option value="JobApplication">
+                      Internship/Job Application
+                    </option>
                     <option value="Sales">Sales & Marketing</option>
                   </select>
                 </label>
+                <!-- end of formsubmit inquiry type integration -->
+
+                <!-- formsubmit message integration  -->
                 <label class="grid gap-1">
                   <span class="text-sm font-semibold">Message</span>
-                  <textarea rows="4" id="message" name="contact_message" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..." required></textarea>
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="4"
+                    class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..."
+                    required>                     
+                  </textarea>
                 </label>
-                <button id="submitBtn" class="mt-2 rounded-xl bg-[#009a9b] px-4 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] transition-colors" type="button">
+                <!-- end of formsubmit message integration  -->
+
+                <button
+                  id="submitBtn"
+                  class="mt-2 rounded-xl bg-[#0eb097] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0a6b5e] transition-colors"
+                  type="submit">
                   Send Message
                 </button>
+                
                 <div id="formStatus" class="text-xs text-center"></div>
               </form>
             </div>
           </div>
+          <!-- END RIGHT COLUMN -->
         </div>
+        <!-- END GRID -->
       </div>
+      <!-- END CONTAINER -->
     </section>
+    <!-- END CONTACT SECTION -->
 
     <!-- ═══════════════════ FOOTER ═══════════════════ -->
     <footer class="bg-slate-950 text-slate-300">
@@ -772,6 +859,20 @@
       </div>
     </footer>
 
+    <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+    <!-- FormSubmit script -->
+        <script>
+          document.getElementById("contactForm").addEventListener("submit", function () {
+            const name = document.getElementById("from_name").value.trim();
+            const email = document.getElementById("from_email").value.trim();
+            const inquiry = document.getElementById("inquiry_type").value;
+        
+            document.getElementById("subjectField").value =
+              "[" + inquiry + "] - " + name + " - " + email;
+          });
+        </script>
+        <!-- FormSubmit script -->
+
     <!-- ═══════════════════ ANTI-BOT / HONEYPOT SCRIPTS ═══════════════════ -->
     <script>
     (function () {
@@ -783,12 +884,13 @@
         return (hp1 && hp1.value.trim() !== "") ||
                (hp2 && hp2.value.trim() !== "");
       }
-
+      
       // ── Layer 2: Timing check ──
       // Humans take at least ~2 seconds to fill a form. Bots submit instantly.
       var formLoadTime = Date.now();
       var MIN_FILL_TIME_MS = 2500;
-
+      
+      
       // ── Layer 3: Interaction check ──
       // Bots never move the mouse or press keys. Track if user interacted.
       var humanInteracted = false;
@@ -796,10 +898,12 @@
         document.addEventListener(evt, function () { humanInteracted = true; }, { once: true, passive: true });
       });
 
+      
       // ── Submit handler ──
       var btn = document.getElementById("submitBtn");
       var status = document.getElementById("formStatus");
 
+      
       if (btn) {
         btn.addEventListener("click", function () {
           var name    = (document.getElementById("from_name")    || {}).value || "";
