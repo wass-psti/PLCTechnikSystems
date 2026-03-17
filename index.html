@@ -168,7 +168,7 @@
   <body class="bg-white text-slate-900 overflow-x-hidden">
 
     <!-- ═══════════════════ HEADER ═══════════════════ -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#FFFFFF]">
+    <header class="sticky top-0 z-50 bg-[#FFFFFF]">
       <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         <div class="flex items-center gap-1 mr-auto">
           <button id="mobileMenuBtn" class="md:hidden p-2 text-black" aria-label="Open menu">
@@ -332,12 +332,12 @@
     </script>
 
     <!-- ═══════════════════ HERO ═══════════════════ -->
-    <section id="hero" class="relative overflow-hidden">
-      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-1080 object-cover -z-10">
+    <section id="hero" class="relative overflow-hidden" style="min-height: 92vh;">
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
         <source src="./assets/videos/PSTIHeroBGCompressed.mp4" type="video/mp4" />
       </video>
       <div class="absolute inset-0 bg-black/50 -z-10"></div>
-      <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 py-28 sm:py-44 flex items-center justify-center" style="min-height:inherit;">
         <div class="max-w-4xl mx-auto text-center">
           <h1 class="scroll-reveal font-extrabold italic text-4xl lg:text-6xl text-white text-center leading-tight">
             Integration Beyond Imagination.
@@ -449,16 +449,16 @@
           <!-- PROJECT 4 -->
           <a href="./projects/project4.html" class="project-card scroll-reveal delay-1" style="text-decoration: none; color: inherit">
             <div class="project-card-img-wrapper">
-              <img src="./assets/images/Cement.jpg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
               <div class="project-card-img-placeholder" style="display: none">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               </div>
             </div>
             <div class="card-accent-line" style="background: #009a9b"></div>
             <div class="project-card-body">
-              <span class="project-card-tag" style="background: #009a9b">Cement Plant Rotopacker Automation & SCADA System</span>
-              <div class="project-card-title">End-to-End Material Handling and Packaging Automation</div>
-              <p class="project-card-desc">PLC Systems Technik, Inc. is currently executing the automation and SCADA system development for a cement plant Rotopacker packaging system, a critical component in the final stage of cement production.</p>
+              <span class="project-card-tag" style="background: #009a9b">BMS Integration</span>
+              <div class="project-card-title">Chiller and Pump Integration to Building Management System</div>
+              <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into an existing BMS using PLC interface and industrial communication protocols.</p>
               <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
                 Learn More
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
