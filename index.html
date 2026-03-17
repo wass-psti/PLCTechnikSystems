@@ -27,6 +27,24 @@
         overflow-x: hidden;
       }
 
+      /* ── Scroll-trigger fade-in ── */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Stagger delays for child groups */
+      .scroll-reveal.delay-1 { transition-delay: 0.1s; }
+      .scroll-reveal.delay-2 { transition-delay: 0.2s; }
+      .scroll-reveal.delay-3 { transition-delay: 0.3s; }
+      .scroll-reveal.delay-4 { transition-delay: 0.4s; }
+      .scroll-reveal.delay-5 { transition-delay: 0.5s; }
+      .scroll-reveal.delay-6 { transition-delay: 0.6s; }
+
       /* ── Project Cards — sleek, sharp ── */
       .project-card {
         display: flex;
@@ -101,7 +119,6 @@
         display: none;
       }
 
-      /* Bigger, bolder title */
       .project-card-title {
         font-size: 1.15rem;
         font-weight: 800;
@@ -110,7 +127,6 @@
         margin-bottom: 0.65rem;
       }
 
-      /* Bigger, more readable description */
       .project-card-desc {
         font-size: 0.95rem;
         color: #475569;
@@ -124,7 +140,6 @@
         flex-shrink: 0;
       }
 
-      /* Rotate arrow when dropdown is open */
       .group:hover .nav-arrow {
         transform: rotate(180deg);
       }
@@ -142,17 +157,10 @@
         tab-index: -1;
       }
 
-      /* Mobile-friendly card grid */
       @media (max-width: 640px) {
-        .project-card-title {
-          font-size: 1.1rem;
-        }
-        .project-card-desc {
-          font-size: 0.95rem;
-        }
-        .project-card-body {
-          padding: 1.25rem 1.25rem 1.5rem;
-        }
+        .project-card-title { font-size: 1.1rem; }
+        .project-card-desc  { font-size: 0.95rem; }
+        .project-card-body  { padding: 1.25rem 1.25rem 1.5rem; }
       }
     </style>
   </head>
@@ -162,8 +170,6 @@
     <!-- ═══════════════════ HEADER ═══════════════════ -->
     <header class="sticky top-0 z-50 bg-[#FFFFFF]">
       <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-
-        <!-- Left: Hamburger + Logo -->
         <div class="flex items-center gap-1 mr-auto">
           <button id="mobileMenuBtn" class="md:hidden p-2 text-black" aria-label="Open menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -175,8 +181,6 @@
             <img src="./assets/pictures/PSTILogo2.png?v=1" alt="PLC Technik Systems Inc. Text Logo" class="h-8 md:h-12 w-auto object-contain" />
           </a>
         </div>
-
-        <!-- Center: Desktop Nav -->
         <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
           <div class="relative group">
             <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">
@@ -222,8 +226,6 @@
             </div>
           </div>
         </nav>
-
-        <!-- Right: Contact Us -->
         <div class="flex justify-end">
           <a href="#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#009a9b] px-4 py-2 text-sm font-semibold text-white hover:bg-[#EBE33B] transition-colors">
             Contact Us
@@ -313,25 +315,12 @@
       const closeBtn = document.getElementById("drawerCloseBtn");
       const drawer = document.getElementById("mobileDrawer");
       const overlay = document.getElementById("drawerOverlay");
-
-      function openDrawer() {
-        drawer.classList.remove("-translate-x-full");
-        overlay.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-      }
-      function closeDrawer() {
-        drawer.classList.add("-translate-x-full");
-        overlay.classList.add("hidden");
-        document.body.style.overflow = "";
-      }
-
+      function openDrawer() { drawer.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); document.body.style.overflow = "hidden"; }
+      function closeDrawer() { drawer.classList.add("-translate-x-full"); overlay.classList.add("hidden"); document.body.style.overflow = ""; }
       menuBtn.addEventListener("click", openDrawer);
       closeBtn.addEventListener("click", closeDrawer);
       overlay.addEventListener("click", closeDrawer);
-
-      drawer.querySelectorAll(".drawer-link").forEach((link) => {
-        link.addEventListener("click", closeDrawer);
-      });
+      drawer.querySelectorAll(".drawer-link").forEach((link) => { link.addEventListener("click", closeDrawer); });
       drawer.querySelectorAll(".drawer-acc-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           const panel = btn.nextElementSibling;
@@ -350,13 +339,13 @@
       <div class="absolute inset-0 bg-black/50 -z-10"></div>
       <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
         <div class="max-w-4xl mx-auto text-center">
-          <h1 class="font-extrabold italic text-4xl lg:text-6xl text-white text-center leading-tight">
+          <h1 class="scroll-reveal font-extrabold italic text-4xl lg:text-6xl text-white text-center leading-tight">
             Integration Beyond Imagination.
           </h1>
-          <p class="mt-6 text-lg mx-auto text-white font-bold text-center">
+          <p class="scroll-reveal delay-2 mt-6 text-lg mx-auto text-white font-bold text-center">
             A Watchdog Automation Sister Company
           </p>
-          <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <div class="scroll-reveal delay-3 mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B]">
               Request Consultation
             </a>
@@ -387,7 +376,8 @@
     <!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
     <section id="projects" class="relative bg-cover bg-center" style="background-image: url('./assets/pictures/PSTIProjectBG.png')">
       <div class="relative mx-auto max-w-7xl px-4 py-16">
-        <div class="max-w-2xl mb-10">
+
+        <div class="scroll-reveal max-w-2xl mb-10">
           <h3 class="text-3xl font-extrabold tracking-tight text-[#009a9b]">About Us</h3>
           <p class="mt-3 text-black/80 text-base leading-relaxed">
             PLC Systems Technik Inc. is an industrial automation company specializing in PLC programming, control system integration, and commissioning for manufacturing, power, and process industries. The company provides reliable solutions for system upgrades, troubleshooting, and automation projects to ensure efficient and stable plant operations.
@@ -396,127 +386,127 @@
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <!-- PROJECT 1 -->
-        <a href="./projects/project1.html" class="project-card" style="text-decoration: none; color: inherit">
-          <div class="project-card-img-wrapper">
-            <img src="./assets/images/Limestone2.jpg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <!-- PROJECT 1 -->
+          <a href="./projects/project1.html" class="project-card scroll-reveal delay-1" style="text-decoration: none; color: inherit">
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/Limestone2.jpg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
             </div>
-          </div>
-          <div class="card-accent-line" style="background: #009a9b"></div>
-          <div class="project-card-body">
-            <span class="project-card-tag" style="background: #009a9b">Limestone Mine Sizing Plant Automation</span>
-            <div class="project-card-title">Greenfield Process Control Engineering for the Mining Industry</div>
-            <p class="project-card-desc">PLC Systems Technik, Inc. successfully engineered and implemented a complete automation and SCADA system for a limestone mine sizing plant, delivering a modern control architecture designed to support reliable and efficient mineral processing operations.</p>
-            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
-              Learn More
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-            </span>
-          </div>
-        </a>
-      
-        <!-- PROJECT 2 -->
-        <a href="./projects/project2.html" class="project-card" style="text-decoration: none; color: inherit">
-          <div class="project-card-img-wrapper">
-            <img src="./assets/images/Water.png" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <div class="card-accent-line" style="background: #009a9b"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #009a9b">Limestone Mine Sizing Plant Automation</span>
+              <div class="project-card-title">Greenfield Process Control Engineering for the Mining Industry</div>
+              <p class="project-card-desc">PLC Systems Technik, Inc. successfully engineered and implemented a complete automation and SCADA system for a limestone mine sizing plant, delivering a modern control architecture designed to support reliable and efficient mineral processing operations.</p>
+              <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
             </div>
-          </div>
-          <div class="card-accent-line" style="background: #009a9b"></div>
-          <div class="project-card-body">
-            <span class="project-card-tag" style="background: #009a9b">Bulk Water Distribution Monitoring & Telemetry</span>
-            <div class="project-card-title">Remote Water Quality Monitoring for a Major Bulk Water Supplier in Cebu</div>
-            <p class="project-card-desc">PLC Systems Technik, Inc. successfully engineered and deployed a remote water monitoring and telemetry system for a major bulk water supplier in Cebu, enabling real-time monitoring of water distribution quality and flow conditions across multiple injection points within the supply network.</p>
-            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
-              Learn More
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-            </span>
-          </div>
-        </a>
-      
-        <!-- PROJECT 3 -->
-        <a href="./projects/project3.html" class="project-card" style="text-decoration: none; color: inherit">
-          <div class="project-card-img-wrapper">
-            <img src="./assets/images/SeawaterDesal.jpg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </a>
+
+          <!-- PROJECT 2 -->
+          <a href="./projects/project2.html" class="project-card scroll-reveal delay-2" style="text-decoration: none; color: inherit">
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/Water.png" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
             </div>
-          </div>
-          <div class="card-accent-line" style="background: #009a9b"></div>
-          <div class="project-card-body">
-            <span class="project-card-tag" style="background: #009a9b">Seawater Desalination Plant Automation & Instrumentation</span>
-            <div class="project-card-title">End-to-End Control System Engineering for Dual 50 MLD Desalination Facilities</div>
-            <p class="project-card-desc">PLC Systems Technik, Inc. successfully delivered the complete automation and instrumentation system for a dual-train seawater desalination facility, each plant rated at 50 million liters per day (MLD), providing a total production capacity of 100 MLD of potable water.</p>
-            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
-              Learn More
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-            </span>
-          </div>
-        </a>
-      
-        <!-- PROJECT 4 -->
-        <a href="./projects/project4.html" class="project-card" style="text-decoration: none; color: inherit">
-          <div class="project-card-img-wrapper">
-            <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <div class="card-accent-line" style="background: #009a9b"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #009a9b">Bulk Water Distribution Monitoring & Telemetry</span>
+              <div class="project-card-title">Remote Water Quality Monitoring for a Major Bulk Water Supplier in Cebu</div>
+              <p class="project-card-desc">PLC Systems Technik, Inc. successfully engineered and deployed a remote water monitoring and telemetry system for a major bulk water supplier in Cebu, enabling real-time monitoring of water distribution quality and flow conditions across multiple injection points within the supply network.</p>
+              <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
             </div>
-          </div>
-          <div class="card-accent-line" style="background: #009a9b"></div>
-          <div class="project-card-body">
-            <span class="project-card-tag" style="background: #009a9b">BMS Integration</span>
-            <div class="project-card-title">Chiller and Pump Integration to Building Management System</div>
-            <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into an existing BMS using PLC interface and industrial communication protocols.</p>
-            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
-              Learn More
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-            </span>
-          </div>
-        </a>
-      
-        <!-- PROJECT 5 -->
-        <a href="./projects/project5.html" class="project-card" style="text-decoration: none; color: inherit">
-          <div class="project-card-img-wrapper">
-            <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </a>
+
+          <!-- PROJECT 3 -->
+          <a href="./projects/project3.html" class="project-card scroll-reveal delay-3" style="text-decoration: none; color: inherit">
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/SeawaterDesal.jpg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
             </div>
-          </div>
-          <div class="card-accent-line" style="background: #009a9b"></div>
-          <div class="project-card-body">
-            <span class="project-card-tag" style="background: #009a9b">Control System Upgrade</span>
-            <div class="project-card-title">Control Panel Retrofit with New PLC System</div>
-            <p class="project-card-desc">Replacement of an obsolete control panel with a modern PLC-based system including new wiring, I/O modules, power supply, and HMI interface.</p>
-            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
-              Learn More
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-            </span>
-          </div>
-        </a>
-      
-        <!-- PROJECT 6 -->
-        <a href="./projects/project6.html" class="project-card" style="text-decoration: none; color: inherit">
-          <div class="project-card-img-wrapper">
-            <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <div class="card-accent-line" style="background: #009a9b"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #009a9b">Seawater Desalination Plant Automation & Instrumentation</span>
+              <div class="project-card-title">End-to-End Control System Engineering for Dual 50 MLD Desalination Facilities</div>
+              <p class="project-card-desc">PLC Systems Technik, Inc. successfully delivered the complete automation and instrumentation system for a dual-train seawater desalination facility, each plant rated at 50 million liters per day (MLD), providing a total production capacity of 100 MLD of potable water.</p>
+              <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
             </div>
-          </div>
-          <div class="card-accent-line" style="background: #009a9b"></div>
-          <div class="project-card-body">
-            <span class="project-card-tag" style="background: #009a9b">SCADA / PLC Integration</span>
-            <div class="project-card-title">PLC and SCADA Integration for Plant Monitoring</div>
-            <p class="project-card-desc">Integrating multiple PLC systems into a SCADA network for centralized monitoring and control — including communication setup, alarms, trends, and operator screens.</p>
-            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
-              Learn More
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-            </span>
-          </div>
-        </a>
-      
-      </div>
+          </a>
+
+          <!-- PROJECT 4 -->
+          <a href="./projects/project4.html" class="project-card scroll-reveal delay-1" style="text-decoration: none; color: inherit">
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+            </div>
+            <div class="card-accent-line" style="background: #009a9b"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #009a9b">BMS Integration</span>
+              <div class="project-card-title">Chiller and Pump Integration to Building Management System</div>
+              <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into an existing BMS using PLC interface and industrial communication protocols.</p>
+              <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- PROJECT 5 -->
+          <a href="./projects/project5.html" class="project-card scroll-reveal delay-2" style="text-decoration: none; color: inherit">
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+            </div>
+            <div class="card-accent-line" style="background: #009a9b"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #009a9b">Control System Upgrade</span>
+              <div class="project-card-title">Control Panel Retrofit with New PLC System</div>
+              <p class="project-card-desc">Replacement of an obsolete control panel with a modern PLC-based system including new wiring, I/O modules, power supply, and HMI interface.</p>
+              <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- PROJECT 6 -->
+          <a href="./projects/project6.html" class="project-card scroll-reveal delay-3" style="text-decoration: none; color: inherit">
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+            </div>
+            <div class="card-accent-line" style="background: #009a9b"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #009a9b">SCADA / PLC Integration</span>
+              <div class="project-card-title">PLC and SCADA Integration for Plant Monitoring</div>
+              <p class="project-card-desc">Integrating multiple PLC systems into a SCADA network for centralized monitoring and control — including communication setup, alarms, trends, and operator screens.</p>
+              <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+            </div>
+          </a>
+
+        </div>
       </div>
     </section>
 
@@ -524,15 +514,14 @@
     <section id="careers" class="bg-slate-50">
       <div class="mx-auto max-w-7xl px-4 py-14">
 
-        <div class="max-w-2xl mb-10">
+        <div class="scroll-reveal max-w-2xl mb-10">
           <h2 class="text-3xl font-extrabold tracking-tight text-[#009a9b]">Careers at PLC Technik Systems Inc.</h2>
           <p class="mt-3 text-slate-600 text-lg">We're building a team of engineers and professionals who value precision, reliability, and real industrial impact. If you want to work on systems that actually run plants — not just documents — this is the place.</p>
         </div>
 
-       <!-- Value props — industrial typographic style -->
+        <!-- Value props -->
         <div class="grid gap-0 sm:grid-cols-3 mb-12 border border-slate-200 rounded-2xl overflow-hidden">
-        
-          <div class="relative p-8 bg-white border-b sm:border-b-0 sm:border-r border-slate-200 group overflow-hidden">
+          <div class="scroll-reveal delay-1 relative p-8 bg-white border-b sm:border-b-0 sm:border-r border-slate-200 group overflow-hidden">
             <div class="absolute top-4 right-5 text-[5.5rem] font-extrabold leading-none text-slate-100 select-none pointer-events-none group-hover:text-[#009a9b]/10 transition-colors duration-500">01</div>
             <div class="relative z-10">
               <div class="w-1 h-8 bg-[#009a9b] mb-5"></div>
@@ -540,8 +529,7 @@
               <p class="text-slate-500 text-sm leading-relaxed">Real PLC cabinets. Real I/O wiring. Real commissioning deadlines — not sandbox exercises or documentation tasks.</p>
             </div>
           </div>
-        
-          <div class="relative p-8 bg-slate-950 border-b sm:border-b-0 sm:border-r border-slate-800 group overflow-hidden">
+          <div class="scroll-reveal delay-2 relative p-8 bg-slate-950 border-b sm:border-b-0 sm:border-r border-slate-800 group overflow-hidden">
             <div class="absolute top-4 right-5 text-[5.5rem] font-extrabold leading-none text-white/5 select-none pointer-events-none group-hover:text-[#EBE33B]/10 transition-colors duration-500">02</div>
             <div class="relative z-10">
               <div class="w-1 h-8 bg-[#EBE33B] mb-5"></div>
@@ -549,8 +537,7 @@
               <p class="text-slate-400 text-sm leading-relaxed">No layers of approval. Your code runs in production, your decisions matter, and your growth is directly proportional to your drive.</p>
             </div>
           </div>
-        
-          <div class="relative p-8 bg-white group overflow-hidden">
+          <div class="scroll-reveal delay-3 relative p-8 bg-white group overflow-hidden">
             <div class="absolute top-4 right-5 text-[5.5rem] font-extrabold leading-none text-slate-100 select-none pointer-events-none group-hover:text-[#009a9b]/10 transition-colors duration-500">03</div>
             <div class="relative z-10">
               <div class="w-1 h-8 bg-[#009a9b] mb-5"></div>
@@ -558,14 +545,12 @@
               <p class="text-slate-500 text-sm leading-relaxed">Water utilities, offshore rigs, distillery plants, cold storage — every engagement is a different system, a different challenge.</p>
             </div>
           </div>
-        
         </div>
 
         <!-- Career tracks grid -->
-        <h3 class="text-xl font-extrabold tracking-tight mb-6">Explore Career Tracks</h3>
+        <h3 class="scroll-reveal text-xl font-extrabold tracking-tight mb-6">Explore Career Tracks</h3>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-
-          <a href="./careers/internship.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+          <a href="./careers/internship.html" class="scroll-reveal delay-1 rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">OJT / Internship</div>
               <div class="font-extrabold text-slate-900">On-the-Job Training</div>
@@ -573,8 +558,7 @@
             </div>
             <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-
-          <a href="./careers/engineering.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+          <a href="./careers/engineering.html" class="scroll-reveal delay-2 rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
               <div class="font-extrabold text-slate-900">Engineering</div>
@@ -582,8 +566,7 @@
             </div>
             <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-
-          <a href="./careers/finance.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+          <a href="./careers/finance.html" class="scroll-reveal delay-3 rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
               <div class="font-extrabold text-slate-900">Finance</div>
@@ -591,8 +574,7 @@
             </div>
             <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-
-          <a href="./careers/logistics.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+          <a href="./careers/logistics.html" class="scroll-reveal delay-1 rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
               <div class="font-extrabold text-slate-900">Logistics</div>
@@ -600,8 +582,7 @@
             </div>
             <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-
-          <a href="./careers/marketing.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+          <a href="./careers/marketing.html" class="scroll-reveal delay-2 rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
               <div class="font-extrabold text-slate-900">Marketing</div>
@@ -609,8 +590,7 @@
             </div>
             <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-
-          <a href="./careers/management.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+          <a href="./careers/management.html" class="scroll-reveal delay-3 rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
               <div class="font-extrabold text-slate-900">Management</div>
@@ -618,11 +598,10 @@
             </div>
             <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-
         </div>
 
         <!-- Apply CTA -->
-        <div class="mt-12 rounded-3xl bg-slate-950 text-white p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="scroll-reveal mt-12 rounded-3xl bg-slate-950 text-white p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <h3 class="text-xl font-extrabold mb-2">Ready to Apply?</h3>
             <p class="text-slate-400 text-sm max-w-xl">Send your resume and a brief introduction to our HR team. Tell us which track you're interested in and why you'd be a great fit.</p>
@@ -639,15 +618,15 @@
       </div>
     </section>
 
-     <!-- ═══════════════════ CONTACT ═══════════════════ -->
+    <!-- ═══════════════════ CONTACT ═══════════════════ -->
     <section id="contact" class="bg-slate-950 text-white">
       <div class="mx-auto max-w-7xl px-4 py-14">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
-          <div class="scroll-fade lg:col-span-6">
+          <div class="scroll-reveal lg:col-span-6">
             <h2 class="text-3xl font-extrabold tracking-tight">Talk to us about your automation scope.</h2>
             <p class="mt-3 text-slate-300 max-w-2xl">Reach out for projects, careers, or general inquiries. We'll reply with clarifying questions and next steps.</p>
             <div class="mt-6 grid gap-3 text-sm text-slate-300">
-              <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@watchdogautomation.com">info@plcsystems.com.ph</a></div>
+              <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@plcsystems.com.ph">info@plcsystems.com.ph</a></div>
               <div><span class="font-semibold text-white">Phone No.:</span> <a class="underline hover:text-white" href="tel:+639178883003">+63 917 888 3003</a></div>
               <div><span class="font-semibold text-white">Address:</span> Bldg. 2, Paseo De Amores, Gun-ob, Lapu-Lapu City, Philippines, 6015</div>
             </div>
@@ -655,8 +634,7 @@
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph" width="100%" height="280" style="border: 0; display: block; width: 100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
-
-          <div class="scroll-fade delay-2 lg:col-span-6">
+          <div class="scroll-reveal delay-2 lg:col-span-6">
             <div class="rounded-3xl bg-white text-slate-900 p-6">
               <div class="font-extrabold text-xl">Contact Us</div>
               <p class="mt-1 text-sm text-slate-600">Reach out to us!</p>
@@ -679,7 +657,7 @@
                     <option value="" disabled selected>Select inquiry type…</option>
                     <option value="Consultation">Consultation</option>
                     <option value="JobApplication">Internship/Job Application</option>
-                    <option value="Sales">Sales & Marketing</option>
+                    <option value="Sales">Sales &amp; Marketing</option>
                   </select>
                 </label>
                 <label class="grid gap-1">
@@ -699,7 +677,6 @@
     <footer class="bg-slate-950 text-slate-300">
       <div class="mx-auto max-w-7xl px-4 py-14">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 mb-12">
-
           <div>
             <h4 class="text-white font-extrabold mb-4">About Us</h4>
             <ul class="space-y-2 text-sm">
@@ -708,14 +685,12 @@
               <li><a href="./about/ourPartners.html" class="hover:text-white">Our Partners</a></li>
             </ul>
           </div>
-
           <div>
             <h4 class="text-white font-extrabold mb-4">Projects</h4>
             <ul class="space-y-2 text-sm">
               <li><a href="#projects" class="hover:text-white">Featured Projects</a></li>
             </ul>
           </div>
-
           <div>
             <h4 class="text-white font-extrabold mb-4">Careers</h4>
             <ul class="space-y-2 text-sm">
@@ -727,7 +702,6 @@
               <li><a href="./careers/management.html" class="hover:text-white">Management</a></li>
             </ul>
           </div>
-
           <div>
             <h4 class="text-white font-extrabold mb-4">Contact Us</h4>
             <ul class="space-y-2 text-sm">
@@ -753,9 +727,7 @@
               </li>
             </ul>
           </div>
-
         </div>
-
         <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
           <div>© <span id="year"></span> PLC Systems Technik Inc. All rights reserved.</div>
           <div class="flex gap-6">
@@ -763,20 +735,43 @@
             <a href="#contact" class="hover:text-white">Contact</a>
           </div>
         </div>
-
         <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-
       </div>
     </footer>
 
     <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
     <script>
+      // Contact form subject line
       document.getElementById("contactForm").addEventListener("submit", function () {
         const name = document.getElementById("from_name").value.trim();
         const email = document.getElementById("from_email").value.trim();
         const inquiry = document.getElementById("inquiry_type").value;
         document.getElementById("subjectField").value = "[" + inquiry + "] - " + name + " - " + email;
       });
+
+      // ── Scroll-reveal IntersectionObserver ──
+      (function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                // Unobserve after first reveal so animation only plays once
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.12,       // trigger when 12% of element is visible
+            rootMargin: "0px 0px -40px 0px"  // slight offset so it fires just before center
+          }
+        );
+
+        // Observe all elements with scroll-reveal class
+        document.querySelectorAll(".scroll-reveal").forEach((el) => {
+          observer.observe(el);
+        });
+      })();
     </script>
 
   </body>
