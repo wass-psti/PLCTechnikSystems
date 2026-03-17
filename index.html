@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      PLC Technik Systems Inc.
-    </title>
+    <title>PLC Technik Systems Inc.</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Q5JX1RS4B"></script>
@@ -13,22 +11,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-9Q5JX1RS4B');
     </script>
-    
-    <meta
-      name="description"
-      content="PLC Technik Systems Inc. delivers PLC programming, HMI/SCADA integration, instrumentation, commissioning, and industrial automation services in the Philippines."
-    />
+
+    <meta name="description" content="PLC Technik Systems Inc. delivers PLC programming, HMI/SCADA integration, instrumentation, commissioning, and industrial automation services in the Philippines." />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
       html, body {
@@ -36,42 +27,52 @@
         overflow-x: hidden;
       }
 
-      /* ── Project Cards ── */
+      /* ── Project Cards — sleek, sharp ── */
       .project-card {
         display: flex;
         flex-direction: column;
-        border-radius: 1.5rem;
+        border-radius: 0.5rem;
         border: 1px solid #e2e8f0;
         background: #fff;
         overflow: hidden;
-        transition: box-shadow 0.2s ease, transform 0.2s ease;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
       }
 
       .project-card:hover {
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+        transform: translateY(-4px);
       }
 
       .project-card-img {
         width: 100%;
-        height: 180px;
+        height: 200px;
         object-fit: cover;
         display: block;
         background: #f1f5f9;
+        transition: transform 0.4s ease;
+      }
+
+      .project-card:hover .project-card-img {
+        transform: scale(1.03);
+      }
+
+      .project-card-img-wrapper {
+        overflow: hidden;
+        flex-shrink: 0;
       }
 
       .project-card-img-placeholder {
         width: 100%;
-        height: 180px;
+        height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        background: #f1f5f9;
         flex-shrink: 0;
       }
 
       .project-card-img-placeholder svg {
-        opacity: 0.25;
+        opacity: 0.2;
       }
 
       .project-card-body {
@@ -84,13 +85,13 @@
       .project-card-tag {
         display: inline-flex;
         align-items: center;
-        font-size: 0.75rem;
+        font-size: 0.68rem;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        margin-bottom: 0.5rem;
-        padding: 2px 10px;
-        border-radius: 9999px;
+        margin-bottom: 0.6rem;
+        padding: 3px 10px;
+        border-radius: 2px;
         color: #ffffff;
         width: fit-content;
       }
@@ -100,23 +101,23 @@
       }
 
       .project-card-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 800;
-        line-height: 1.3;
+        line-height: 1.35;
         color: #0f172a;
         margin-bottom: 0.5rem;
       }
 
       .project-card-desc {
-        font-size: 0.875rem;
-        color: #475569;
-        line-height: 1.6;
+        font-size: 0.85rem;
+        color: #64748b;
+        line-height: 1.65;
         margin-bottom: 0.75rem;
         flex: 1;
       }
 
       .card-accent-line {
-        height: 3px;
+        height: 2px;
         flex-shrink: 0;
       }
 
@@ -125,7 +126,7 @@
         transform: rotate(180deg);
       }
 
-      /* ── Honeypot: MUST stay visually hidden but NOT display:none or bots skip it ── */
+      /* ── Honeypot ── */
       .hp-field {
         position: absolute;
         left: -9999px;
@@ -153,7 +154,6 @@
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-
           <a href="./index.html" class="flex items-center shrink-0">
             <img src="./assets/pictures/PLCLogo.png?v=1" alt="PLC Technik Systems Inc. without Text Logo" class="h-8 md:h-12 w-auto object-contain" />
             <img src="./assets/pictures/PSTILogo2.png?v=1" alt="PLC Technik Systems Inc. Text Logo" class="h-8 md:h-12 w-auto object-contain" />
@@ -162,13 +162,10 @@
 
         <!-- Center: Desktop Nav -->
         <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
-
           <div class="relative group">
             <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">
               About Us
-              <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20">
-                <path d="M5 7l5 5 5-5H5z" />
-              </svg>
+              <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
             </button>
             <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
@@ -179,29 +176,22 @@
               </ul>
             </div>
           </div>
-
           <div class="relative group">
             <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">
               Projects
-              <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20">
-                <path d="M5 7l5 5 5-5H5z" />
-              </svg>
+              <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
             </button>
             <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
               <ul class="py-2">
                 <li><a href="#projects" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Featured Projects</a></li>
-                <!--<li><a href="#services" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Case Studies</a></li>-->
               </ul>
             </div>
           </div>
-
           <div class="relative group">
             <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">
               Careers
-              <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20">
-                <path d="M5 7l5 5 5-5H5z" />
-              </svg>
+              <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
             </button>
             <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
@@ -231,7 +221,6 @@
 
     <!-- ═══ MOBILE DRAWER ═══ -->
     <div id="mobileDrawer" class="fixed top-0 left-0 h-full w-72 bg-[#111] z-[999] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
-      <!-- Drawer Header -->
       <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
         <div class="flex items-center gap-2">
           <img src="./assets/pictures/PLCLogo.png?v=1" alt="Logo" class="h-8 w-auto" />
@@ -243,29 +232,21 @@
           </svg>
         </button>
       </div>
-
-      <!-- Drawer Nav -->
       <nav class="flex-1 overflow-y-auto py-4 px-3">
         <a href="#hero" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
           <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            <polyline points="9 22 9 12 15 12 15 22" />
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
           <span class="font-semibold text-sm">Home</span>
         </a>
-
         <div class="drawer-accordion">
           <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
             <div class="flex items-center gap-4">
-              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-              </svg>
+              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
               <span class="font-semibold text-sm">About Us</span>
             </div>
-            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="drawer-acc-panel hidden pl-12 pb-1">
             <a href="./about/ourStory.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
@@ -273,25 +254,18 @@
             <a href="./about/ourPartners.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Partners</a>
           </div>
         </div>
-
         <div class="drawer-accordion">
           <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
             <div class="flex items-center gap-4">
-              <svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24">
-                <path d="M3 3h18v18H3zM3 9h18M9 21V9" />
-              </svg>
+              <svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
               <span class="font-semibold text-sm">Projects</span>
             </div>
-            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="drawer-acc-panel hidden pl-12 pb-1">
             <a href="#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
-            <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Case Studies</a>
           </div>
         </div>
-
         <div class="drawer-accordion">
           <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
             <div class="flex items-center gap-4">
@@ -301,21 +275,18 @@
               </svg>
               <span class="font-semibold text-sm">Careers</span>
             </div>
-            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="drawer-acc-panel hidden pl-12 pb-1">
-            <a href="#careers" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Internship / On-the-Job Training</a>
-            <a href="#careers" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Engineering</a>
-            <a href="#careers" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Finance</a>
-            <a href="#careers" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Marketing</a>
-            <a href="#careers" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Management</a>
+            <a href="./careers/internship.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Internship / On-the-Job Training</a>
+            <a href="./careers/engineering.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Engineering</a>
+            <a href="./careers/finance.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Finance</a>
+            <a href="./careers/logistics.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Logistics</a>
+            <a href="./careers/marketing.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Marketing</a>
+            <a href="./careers/management.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Management</a>
           </div>
         </div>
       </nav>
-
-      <!-- Drawer Footer CTA -->
       <a href="#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#009a9b] px-4 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] transition-colors">
         Contact Us
       </a>
@@ -332,7 +303,6 @@
         overlay.classList.remove("hidden");
         document.body.style.overflow = "hidden";
       }
-
       function closeDrawer() {
         drawer.classList.add("-translate-x-full");
         overlay.classList.add("hidden");
@@ -346,7 +316,6 @@
       drawer.querySelectorAll(".drawer-link").forEach((link) => {
         link.addEventListener("click", closeDrawer);
       });
-
       drawer.querySelectorAll(".drawer-acc-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           const panel = btn.nextElementSibling;
@@ -400,99 +369,113 @@
     </style>
 
     <!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
-    <section id="projects" class="relative bg-cover bg-center text-white" style="background-image: url('./assets/pictures/PSTIProjectBG.png')">
+    <section id="projects" class="relative bg-cover bg-center" style="background-image: url('./assets/pictures/PSTIProjectBG.png')">
       <div class="relative mx-auto max-w-7xl px-4 py-16">
-        <div class="max-w-2xl">
+        <div class="max-w-2xl mb-10">
           <h3 class="text-3xl font-extrabold tracking-tight text-[#009a9b]">About Us</h3>
           <p class="mt-3 text-black/80">
             PLC Technik Systems Inc. is an industrial automation company specializing in PLC programming, control system integration, and commissioning for manufacturing, power, and process industries. The company provides reliable solutions for system upgrades, troubleshooting, and automation projects to ensure efficient and stable plant operations.
           </p>
         </div>
 
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
           <!-- PROJECT 1 -->
           <a href="./projects/project1.html" class="project-card" style="text-decoration: none; color: inherit">
-            <img src="./assets/images/ProjectOne.jpg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/ProjectOne.jpg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
             </div>
             <div class="card-accent-line" style="background: #009a9b"></div>
             <div class="project-card-body">
-              <span class="project-card-tag bg-[#009a9b]">Automating Water Source</span>
+              <span class="project-card-tag" style="background: #009a9b">Automating Water Source</span>
               <div class="project-card-title">Pilipinas Water Resources, Inc</div>
-              <p class="project-card-desc">Supply, engineering, installation, testing and commissioning of a complete Water Quality Analysis System for turbidity, residual chlorine, conductivity, pH, pressure and flow</p>
+              <p class="project-card-desc">Supply, engineering, installation, testing and commissioning of a complete Water Quality Analysis System for turbidity, residual chlorine, conductivity, pH, pressure and flow.</p>
             </div>
           </a>
 
           <!-- PROJECT 2 -->
           <a href="./projects/project2.html" class="project-card" style="text-decoration: none; color: inherit">
-            <img src="./assets/images/DePal.JPG" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/DePal.JPG" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
             </div>
             <div class="card-accent-line" style="background: #009a9b"></div>
             <div class="project-card-body">
-              <span class="project-card-tag bg-[#009a9b]">PLC Upgrading</span>
+              <span class="project-card-tag" style="background: #009a9b">PLC Upgrading</span>
               <div class="project-card-title">DEPAL PLC Upgrading from S7-300 to S7-1500</div>
-              <p class="project-card-desc">This project involved upgrading the existing control system from the Siemens SIMATIC S7-300 PLC to the newer Siemens SIMATIC S7-1500 PLC platform. The work included migrating the PLC program, reconfiguring hardware, and ensuring proper system communication.</p>
+              <p class="project-card-desc">Upgrading the existing control system from Siemens SIMATIC S7-300 to the S7-1500 platform — including program migration, hardware reconfiguration, and system communication validation.</p>
             </div>
           </a>
 
           <!-- PROJECT 3 -->
           <a href="./projects/project3.html" class="project-card" style="text-decoration: none; color: inherit">
-            <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
             </div>
             <div class="card-accent-line" style="background: #009a9b"></div>
             <div class="project-card-body">
-              <span class="project-card-tag bg-[#009a9b]">PLC Migration</span>
-              <div class="project-card-title">PLC Migration from S7-300 to S7-1500 PLC at Ginebra San Miguel Mandaue Plant</div>
-              <p class="project-card-desc">This project involved upgrading the plant's automation system by migrating from the legacy Siemens S7-300 PLC platform to the more modern S7-1500 series.</p>
+              <span class="project-card-tag" style="background: #009a9b">PLC Migration</span>
+              <div class="project-card-title">PLC Migration — S7-300 to S7-1500 at Ginebra San Miguel Mandaue Plant</div>
+              <p class="project-card-desc">Migrating the plant's automation system from the legacy S7-300 platform to the modern S7-1500 series for improved performance and future-readiness.</p>
             </div>
           </a>
 
           <!-- PROJECT 4 -->
           <a href="./projects/project4.html" class="project-card" style="text-decoration: none; color: inherit">
-            <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
             </div>
             <div class="card-accent-line" style="background: #009a9b"></div>
             <div class="project-card-body">
-              <span class="project-card-tag bg-[#009a9b]">BMS Integration</span>
+              <span class="project-card-tag" style="background: #009a9b">BMS Integration</span>
               <div class="project-card-title">Chiller and Pump Integration to Building Management System</div>
-              <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into existing BMS using PLC interface and industrial communication protocols.</p>
+              <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into an existing BMS using PLC interface and industrial communication protocols.</p>
             </div>
           </a>
 
           <!-- PROJECT 5 -->
           <a href="./projects/project5.html" class="project-card" style="text-decoration: none; color: inherit">
-            <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
             </div>
             <div class="card-accent-line" style="background: #009a9b"></div>
             <div class="project-card-body">
-              <span class="project-card-tag bg-[#009a9b]">Control System Upgrade</span>
+              <span class="project-card-tag" style="background: #009a9b">Control System Upgrade</span>
               <div class="project-card-title">Control Panel Retrofit with New PLC System</div>
-              <p class="project-card-desc">Replacement of obsolete control panel with modern PLC-based system including new wiring, I/O modules, power supply, and HMI interface.</p>
+              <p class="project-card-desc">Replacement of an obsolete control panel with a modern PLC-based system including new wiring, I/O modules, power supply, and HMI interface.</p>
             </div>
           </a>
 
           <!-- PROJECT 6 -->
           <a href="./projects/project6.html" class="project-card" style="text-decoration: none; color: inherit">
-            <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="project-card-img-placeholder" style="display: none">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+            <div class="project-card-img-wrapper">
+              <img src="./assets/images/PLCUpgrade.jpeg" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="project-card-img-placeholder" style="display: none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#009a9b" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
             </div>
             <div class="card-accent-line" style="background: #009a9b"></div>
             <div class="project-card-body">
-              <span class="project-card-tag bg-[#009a9b]">SCADA / PLC Integration</span>
+              <span class="project-card-tag" style="background: #009a9b">SCADA / PLC Integration</span>
               <div class="project-card-title">PLC and SCADA Integration for Plant Monitoring</div>
-              <p class="project-card-desc">Integrated multiple PLC systems into SCADA network for centralized monitoring and control. Configured communication, alarms, trends, and operator interface screens.</p>
+              <p class="project-card-desc">Integrating multiple PLC systems into a SCADA network for centralized monitoring and control — including communication setup, alarms, trends, and operator screens.</p>
             </div>
           </a>
+
         </div>
       </div>
     </section>
@@ -500,12 +483,14 @@
     <!-- ═══════════════════ CAREERS ═══════════════════ -->
     <section id="careers" class="bg-slate-50">
       <div class="mx-auto max-w-7xl px-4 py-14">
-        <div class="max-w-2xl">
+
+        <div class="max-w-2xl mb-10">
           <h2 class="text-3xl font-extrabold tracking-tight text-[#009a9b]">Careers at PLC Technik Systems Inc.</h2>
-          <p class="mt-3 text-slate-600 text-lg">We're looking for engineers who value reliability and technical excellence. Join PLC Technik Systems Inc. and help build automation systems for real industrial operations.</p>
+          <p class="mt-3 text-slate-600 text-lg">We're building a team of engineers and professionals who value precision, reliability, and real industrial impact. If you want to work on systems that actually run plants — not just documents — this is the place.</p>
         </div>
 
-        <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        <!-- 3 value props -->
+        <div class="grid gap-6 sm:grid-cols-3 mb-12">
           <div class="rounded-3xl border border-slate-200 bg-white p-6">
             <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: #009a9b">
               <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
@@ -515,68 +500,92 @@
             <h3 class="font-extrabold text-slate-900 mb-2">Hands-On Work</h3>
             <p class="text-slate-600 text-sm leading-relaxed">Work on real PLC, SCADA, and instrumentation projects across diverse industries — not just simulations or documentation.</p>
           </div>
-
           <div class="rounded-3xl border border-slate-200 bg-white p-6">
             <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: #009a9b">
               <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
             </div>
             <h3 class="font-extrabold text-slate-900 mb-2">Grow Fast</h3>
             <p class="text-slate-600 text-sm leading-relaxed">Work alongside experienced engineers in a lean team where your contributions are visible and your growth is accelerated.</p>
           </div>
-
           <div class="rounded-3xl border border-slate-200 bg-white p-6">
             <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 bg-slate-800">
               <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
               </svg>
             </div>
             <h3 class="font-extrabold text-slate-900 mb-2">Diverse Projects</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">From offshore rigs to food & beverage plants to water utilities — no two projects are the same at PLC Technik.</p>
+            <p class="text-slate-600 text-sm leading-relaxed">From offshore rigs to food &amp; beverage plants to water utilities — no two projects are the same at PLC Technik.</p>
           </div>
         </div>
 
-        <div class="mt-14">
-          <h3 class="text-xl font-extrabold tracking-tight mb-6">Open Positions</h3>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-3">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full" style="background: #009a9b">Engineering</span>
-                <span class="text-xs text-slate-400 font-semibold">Full-time</span>
-              </div>
-              <h4 class="font-extrabold text-slate-900">PLC / SCADA Engineer</h4>
-              <p class="text-slate-600 text-sm leading-relaxed flex-1">Program and commission PLC and SCADA systems. Experience with Siemens TIA Portal preferred.</p>
-              <div class="text-xs text-slate-400">📍 Lapu-Lapu City, Cebu</div>
-            </div>
+        <!-- Career tracks grid -->
+        <h3 class="text-xl font-extrabold tracking-tight mb-6">Explore Career Tracks</h3>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-3">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full" style="background: #009a9b">Engineering</span>
-                <span class="text-xs text-slate-400 font-semibold">Full-time</span>
-              </div>
-              <h4 class="font-extrabold text-slate-900">Instrumentation Technician</h4>
-              <p class="text-slate-600 text-sm leading-relaxed flex-1">Install, calibrate, and maintain field instruments including pressure, temperature, flow, and level transmitters.</p>
-              <div class="text-xs text-slate-400">📍 Lapu-Lapu City, Cebu</div>
+          <a href="./careers/internship.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">OJT / Internship</div>
+              <div class="font-extrabold text-slate-900">On-the-Job Training</div>
+              <p class="text-slate-500 text-sm mt-1">For students in ECE, EE, Mechatronics &amp; related fields.</p>
             </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
 
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-3">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full bg-slate-700">Engineering</span>
-                <span class="text-xs text-slate-400 font-semibold">Full-time</span>
-              </div>
-              <h4 class="font-extrabold text-slate-900">Electrical Engineer</h4>
-              <p class="text-slate-600 text-sm leading-relaxed flex-1">Design and assemble industrial control panels. Knowledge of wiring, protection devices, and panel layout required.</p>
-              <div class="text-xs text-slate-400">📍 Lapu-Lapu City, Cebu</div>
+          <a href="./careers/engineering.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
+              <div class="font-extrabold text-slate-900">Engineering</div>
+              <p class="text-slate-500 text-sm mt-1">PLC/SCADA engineers, instrumentation techs, electrical engineers.</p>
             </div>
-          </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="./careers/finance.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
+              <div class="font-extrabold text-slate-900">Finance</div>
+              <p class="text-slate-500 text-sm mt-1">Project billing, cost control, and financial reporting.</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="./careers/logistics.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
+              <div class="font-extrabold text-slate-900">Logistics</div>
+              <p class="text-slate-500 text-sm mt-1">Materials procurement, supplier coordination, site delivery.</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="./careers/marketing.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
+              <div class="font-extrabold text-slate-900">Marketing</div>
+              <p class="text-slate-500 text-sm mt-1">Brand, content, digital presence, and B2B outreach.</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="./careers/management.html" class="rounded-2xl border border-slate-200 bg-white p-6 flex items-center justify-between hover:border-[#009a9b] hover:shadow-md transition-all group">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-1">Full-time</div>
+              <div class="font-extrabold text-slate-900">Management</div>
+              <p class="text-slate-500 text-sm mt-1">Project management, business development, operations leadership.</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#009a9b] transition-colors shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+
         </div>
 
-        <div class="mt-14 rounded-3xl bg-slate-950 text-white p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <!-- Apply CTA -->
+        <div class="mt-12 rounded-3xl bg-slate-950 text-white p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <h3 class="text-xl font-extrabold mb-2">Ready to Apply?</h3>
-            <p class="text-slate-400 text-sm max-w-xl">Send your resume and a brief introduction to our HR team. Tell us which position you're applying for and why you'd be a great fit.</p>
+            <p class="text-slate-400 text-sm max-w-xl">Send your resume and a brief introduction to our HR team. Tell us which track you're interested in and why you'd be a great fit.</p>
             <div class="mt-3 text-sm text-slate-300">
               <span class="font-semibold text-white">HR Email:</span>
               <a href="mailto:info@plcsystems.com.ph" class="underline hover:text-white ml-1">info@plcsystems.com.ph</a>
@@ -586,6 +595,7 @@
             Contact HR →
           </a>
         </div>
+
       </div>
     </section>
 
@@ -601,7 +611,7 @@
           </div>
           <div class="rounded-3xl border border-slate-200 p-6">
             <div class="text-sm font-bold text-[#009a9b]">02 • Design</div>
-            <p class="mt-2 text-slate-700">Cause & effect, alarm philosophy, screen list, test plan.</p>
+            <p class="mt-2 text-slate-700">Cause &amp; effect, alarm philosophy, screen list, test plan.</p>
           </div>
           <div class="rounded-3xl border border-slate-200 p-6">
             <div class="text-sm font-bold text-slate-700">03 • Build</div>
@@ -619,162 +629,76 @@
     <section id="contact" class="bg-slate-950 text-white">
       <div class="mx-auto max-w-7xl px-4 py-14">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
-          <!-- LEFT COLUMN: Info + Map -->
           <div class="lg:col-span-6">
-            <h2 class="text-3xl font-extrabold tracking-tight">
-              Talk to us about your automation scope.
-            </h2>
-            <p class="mt-3 text-slate-300 max-w-2xl">
-              Reach out for projects, careers, or general inquiries. We'll reply
-              with clarifying questions and next steps.
-            </p>
+            <h2 class="text-3xl font-extrabold tracking-tight">Talk to us about your automation scope.</h2>
+            <p class="mt-3 text-slate-300 max-w-2xl">Reach out for projects, careers, or general inquiries. We'll reply with clarifying questions and next steps.</p>
             <div class="mt-6 grid gap-3 text-sm text-slate-300">
               <div>
                 <span class="font-semibold text-white">Email:</span>
-                <a
-                  class="underline hover:text-white"
-                  href="mailto:info@plcsystems.com.ph"
-                  >info@plcsystems.com.ph</a
-                >
+                <a class="underline hover:text-white" href="mailto:info@plcsystems.com.ph">info@plcsystems.com.ph</a>
               </div>
               <div>
                 <span class="font-semibold text-white">Phone No.:</span>
-                <a class="underline hover:text-white" href="tel:+639178883003"
-                  >+63 917 888 3003</a
-                >
+                <a class="underline hover:text-white" href="tel:+639178883003">+63 917 888 3003</a>
               </div>
               <div>
-                <span class="font-semibold text-white">Address:</span> Bldg. 2,
-                Paseo De Amores, Gun-ob, Lapu-Lapu City, Philippines, 6015
+                <span class="font-semibold text-white">Address:</span> Bldg. 2, Paseo De Amores, Gun-ob, Lapu-Lapu City, Philippines, 6015
               </div>
             </div>
-
-            <!-- Google Maps -->
-            <div
-              class="mt-6 rounded-2xl overflow-hidden border border-slate-700 w-full"
-            >
+            <div class="mt-6 rounded-2xl overflow-hidden border border-slate-700 w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph"
-                width="100%"
-                height="280"
-                style="border: 0; display: block; width: 100%"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              >
+                width="100%" height="280" style="border: 0; display: block; width: 100%"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
               </iframe>
             </div>
           </div>
-          <!-- END LEFT COLUMN -->
-
-          <!-- RIGHT COLUMN: Contact Form -->
           <div class="lg:col-span-6">
             <div class="rounded-3xl bg-white text-slate-900 p-6">
               <div class="font-extrabold text-xl">Contact Us</div>
               <p class="mt-1 text-sm text-slate-600">Reach out to us!</p>
-              
-              <!-- formsubmit form integration -->
-              <form
-                  id="contactForm"
-                  action="https://formsubmit.co/info@plcsystems.com.ph"
-                  method="POST"
-                  class="mt-5 grid gap-3"
-                >
-                <!-- end of formsubmit form integration -->
-
-                <!-- hidden subject field -->
+              <form id="contactForm" action="https://formsubmit.co/info@plcsystems.com.ph" method="POST" class="mt-5 grid gap-3">
                 <input type="hidden" name="_subject" id="subjectField">
                 <input type="hidden" name="_template" value="table">
                 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                <!--<input type="hidden" name="_replyto" value="email">-->
-                <input
-                  type="hidden" name="_next" value="https://wass-psti.github.io/PLCTechnikSystems/thankYou.html"
-                />
-                <!-- formsubmit name integration  -->
+                <input type="hidden" name="_next" value="https://wass-psti.github.io/PLCTechnikSystems/thankYou.html" />
                 <label class="grid gap-1">
-                  <span class="text-sm font-semibold">Name</span>  
-                  <input name="name" id="from_name"
-                    class="rounded-xl border border-slate-300 px-3 py-2"
-                    placeholder="Your name"
-                    required
-                  />     
+                  <span class="text-sm font-semibold">Name</span>
+                  <input name="name" id="from_name" class="rounded-xl border border-slate-300 px-3 py-2" placeholder="Your name" required />
                 </label>
-                <!-- end of formsubmit name integration -->
-
-                <!-- formsubmit email integration  -->
                 <label class="grid gap-1">
                   <span class="text-sm font-semibold">Email</span>
-                  <input
-                    type="email"
-                    name="email"
-                    id="from_email"
-                    class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900"
-                    placeholder="you@company.com"
-                    required
-                  />
+                  <input type="email" name="email" id="from_email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" required />
                 </label>
-                <!-- end of formsubmit email integration -->
-
-                <!-- formsubmit inquiry type integration  -->
                 <label class="grid gap-1">
                   <span class="text-sm font-semibold">Type of Inquiry</span>
-                  <select
-                    name="inquiry_type"
-                    id="inquiry_type"
-                    class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-white text-slate-900"
-                    required
-                  >
-                    <option value="" disabled selected>
-                      Select inquiry type…
-                    </option>
+                  <select name="inquiry_type" id="inquiry_type" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-white text-slate-900" required>
+                    <option value="" disabled selected>Select inquiry type…</option>
                     <option value="Consultation">Consultation</option>
-                    <option value="JobApplication">
-                      Internship/Job Application
-                    </option>
-                    <option value="Sales">Sales & Marketing</option>
+                    <option value="JobApplication">Internship/Job Application</option>
+                    <option value="Sales">Sales &amp; Marketing</option>
                   </select>
                 </label>
-                <!-- end of formsubmit inquiry type integration -->
-
-                <!-- formsubmit message integration  -->
                 <label class="grid gap-1">
                   <span class="text-sm font-semibold">Message</span>
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows="4"
-                    class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900"
-                    placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..."
-                    required>                     
-                  </textarea>
+                  <textarea name="message" id="message" rows="4" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..." required></textarea>
                 </label>
-                <!-- end of formsubmit message integration  -->
-
-                <button
-                  id="submitBtn"
-                  class="mt-2 rounded-xl bg-[#0eb097] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0a6b5e] transition-colors"
-                  type="submit">
+                <button id="submitBtn" class="mt-2 rounded-xl bg-[#0eb097] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0a6b5e] transition-colors" type="submit">
                   Send Message
                 </button>
-                
                 <div id="formStatus" class="text-xs text-center"></div>
               </form>
             </div>
           </div>
-          <!-- END RIGHT COLUMN -->
         </div>
-        <!-- END GRID -->
       </div>
-      <!-- END CONTAINER -->
     </section>
-    <!-- END CONTACT SECTION -->
 
     <!-- ═══════════════════ FOOTER ═══════════════════ -->
     <footer class="bg-slate-950 text-slate-300">
       <div class="mx-auto max-w-7xl px-4 py-14">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 mb-12">
 
-          <!-- Col 1: About Us -->
           <div>
             <h4 class="text-white font-extrabold mb-4">About Us</h4>
             <ul class="space-y-2 text-sm">
@@ -784,7 +708,6 @@
             </ul>
           </div>
 
-          <!-- Col 2: Projects -->
           <div>
             <h4 class="text-white font-extrabold mb-4">Projects</h4>
             <ul class="space-y-2 text-sm">
@@ -792,20 +715,18 @@
             </ul>
           </div>
 
-          <!-- Col 3: Careers -->
           <div>
             <h4 class="text-white font-extrabold mb-4">Careers</h4>
             <ul class="space-y-2 text-sm">
-        <li><a href="./careers/internship.html" class="hover:text-white">Internship / On-the-Job Training</a></li>
-        <li><a href="./careers/engineering.html" class="hover:text-white">Engineering</a></li>
-        <li><a href="./careers/finance.html" class="hover:text-white">Finance</a></li>
-        <li><a href="./careers/logistics.html" class="hover:text-white">Logistics</a></li>
-        <li><a href="./careers/marketing.html" class="hover:text-white">Marketing</a></li>
-        <li><a href="./careers/management.html" class="hover:text-white">Management</a></li>
+              <li><a href="./careers/internship.html" class="hover:text-white">Internship / On-the-Job Training</a></li>
+              <li><a href="./careers/engineering.html" class="hover:text-white">Engineering</a></li>
+              <li><a href="./careers/finance.html" class="hover:text-white">Finance</a></li>
+              <li><a href="./careers/logistics.html" class="hover:text-white">Logistics</a></li>
+              <li><a href="./careers/marketing.html" class="hover:text-white">Marketing</a></li>
+              <li><a href="./careers/management.html" class="hover:text-white">Management</a></li>
             </ul>
           </div>
 
-          <!-- Col 4: Contact -->
           <div>
             <h4 class="text-white font-extrabold mb-4">Contact Us</h4>
             <ul class="space-y-2 text-sm">
@@ -846,5 +767,16 @@
 
       </div>
     </footer>
+
+    <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function () {
+        const name = document.getElementById("from_name").value.trim();
+        const email = document.getElementById("from_email").value.trim();
+        const inquiry = document.getElementById("inquiry_type").value;
+        document.getElementById("subjectField").value = "[" + inquiry + "] - " + name + " - " + email;
+      });
+    </script>
+
   </body>
 </html>
