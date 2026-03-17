@@ -50,7 +50,7 @@
 <body class="text-slate-800">
 
 <!-- HEADER -->
-<header class="fixed top-0 left-0 right-0 z-50 w-full bg-[#000000]">
+<header class="fixed top-0 z-50 left-0 right-0 bg-[#000000]">
   <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
     <div class="flex items-center gap-1 mr-auto">
       <button id="mobileMenuBtn" class="md:hidden p-2 text-white" aria-label="Open menu">
@@ -87,12 +87,11 @@
         <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
           <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
           <ul class="py-2">
-            <li><a href="../careers/internship.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Internship / On-the-Job Training</a></li>
-            <li><a href="../careers/engineering.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Engineering</a></li>
-            <li><a href="../careers/finance.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Finance</a></li>
-            <li><a href="../careers/logistics.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Logistics</a></li>
-            <li><a href="../careers/marketing.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Marketing</a></li>
-            <li><a href="../careers/management.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Management</a></li>
+            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Internship / On-the-Job Training</a></li>
+            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Engineering</a></li>
+            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Finance</a></li>
+            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Marketing</a></li>
+            <li><a href="../index.html#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Management</a></li>
           </ul>
         </div>
       </div>
@@ -146,23 +145,10 @@
         <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
       </div>
     </div>
-    <div class="drawer-accordion">
-      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-        <div class="flex items-center gap-4">
-          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
-          <span class="font-semibold text-sm">Careers</span>
-        </div>
-        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="drawer-acc-panel hidden pl-12 pb-1">
-        <a href="../careers/internship.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Internship / OJT</a>
-        <a href="../careers/engineering.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Engineering</a>
-        <a href="../careers/finance.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Finance</a>
-        <a href="../careers/logistics.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Logistics</a>
-        <a href="../careers/marketing.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Marketing</a>
-        <a href="../careers/management.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Management</a>
-      </div>
-    </div>
+    <a href="../index.html#careers" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+      <span class="font-semibold text-sm">Careers</span>
+    </a>
   </nav>
   <a href="../index.html#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#ac0505] px-4 py-3 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors m-3 w-auto">Contact Us</a>
 </div>
@@ -187,6 +173,7 @@
     });
   });
 </script>
+
 
 <!-- PAGE INTRO -->
 <div class="mx-auto max-w-7xl px-6 pt-32 pb-8">
