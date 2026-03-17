@@ -12,20 +12,45 @@
     <style>
       html, body { font-family: "Manrope", sans-serif; overflow-x: hidden; }
       .group:hover .nav-arrow { transform: rotate(180deg); }
+
+      /* ── Scroll fade-in ── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .fade-up.delay-1 { transition-delay: 0.1s; }
+      .fade-up.delay-2 { transition-delay: 0.2s; }
+      .fade-up.delay-3 { transition-delay: 0.3s; }
+      .fade-up.delay-4 { transition-delay: 0.4s; }
+      .fade-up.delay-5 { transition-delay: 0.5s; }
+      .fade-up.delay-6 { transition-delay: 0.6s; }
     </style>
   </head>
   <body class="bg-white text-slate-900 overflow-x-hidden">
 
-    <!-- HEADER -->
-    <header class="sticky top-0 z-50 bg-white border-b border-slate-100">
+    <!-- ═══════════════════ HEADER ═══════════════════ -->
+    <header class="sticky top-0 z-50 bg-[#FFFFFF]">
       <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-        <a href="../index.html" class="flex items-center shrink-0">
-          <img src="../assets/pictures/PLCLogo.png?v=1" alt="PLC Technik" class="h-10 w-auto object-contain" />
-          <img src="../assets/pictures/PSTILogo2.png?v=1" alt="PLC Technik Systems Inc." class="h-10 w-auto object-contain" />
-        </a>
+        <div class="flex items-center gap-1 mr-auto">
+          <button id="mobileMenuBtn" class="md:hidden p-2 text-black" aria-label="Open menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <a href="../index.html" class="flex items-center shrink-0">
+            <img src="../assets/pictures/PLCLogo.png?v=1" alt="PLC Technik Systems Inc. without Text Logo" class="h-8 md:h-12 w-auto object-contain" />
+            <img src="../assets/pictures/PSTILogo2.png?v=1" alt="PLC Technik Systems Inc. Text Logo" class="h-8 md:h-12 w-auto object-contain" />
+          </a>
+        </div>
         <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
           <div class="relative group">
-            <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">About Us
+            <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">
+              About Us
               <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
             </button>
             <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -38,7 +63,8 @@
             </div>
           </div>
           <div class="relative group">
-            <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">Projects
+            <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">
+              Projects
               <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
             </button>
             <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -49,36 +75,136 @@
             </div>
           </div>
           <div class="relative group">
-            <button class="flex items-center gap-1 px-4 py-2 text-[#009a9b]">Careers
+            <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">
+              Careers
               <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
             </button>
             <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
               <ul class="py-2">
-                <li><a href="./internship.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Internship / OJT</a></li>
+                <li><a href="./internship.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Internship / On-the-Job Training</a></li>
                 <li><a href="./engineering.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Engineering</a></li>
-                <li><a href="./finance.html" class="block px-4 py-2 text-sm font-bold text-[#009a9b] bg-slate-50">Finance</a></li>
+                <li><a href="./finance.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Finance</a></li>
+                <li><a href="./logistics.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Logistics</a></li>
                 <li><a href="./marketing.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Marketing</a></li>
                 <li><a href="./management.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Management</a></li>
               </ul>
             </div>
           </div>
         </nav>
-        <a href="../index.html#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#009a9b] px-4 py-2 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Contact Us</a>
+        <div class="flex justify-end">
+          <a href="../index.html#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#009a9b] px-4 py-2 text-sm font-semibold text-white hover:bg-[#EBE33B] transition-colors">
+            Contact Us
+          </a>
+        </div>
       </div>
     </header>
+
+    <!-- ═══ MOBILE DRAWER OVERLAY ═══ -->
+    <div id="drawerOverlay" class="fixed inset-0 bg-black/60 z-[998] hidden md:hidden" aria-hidden="true"></div>
+
+    <!-- ═══ MOBILE DRAWER ═══ -->
+    <div id="mobileDrawer" class="fixed top-0 left-0 h-full w-72 bg-[#111] z-[999] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <img src="../assets/pictures/PLCLogo.png?v=1" alt="Logo" class="h-8 w-auto" />
+          <img src="../assets/pictures/PSTILogo2.png?v=1" alt="PLC Technik" class="h-8 w-auto" />
+        </div>
+        <button id="drawerCloseBtn" class="text-white/60 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="flex-1 overflow-y-auto py-4 px-3">
+        <a href="../index.html#hero" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span class="font-semibold text-sm">Home</span>
+        </a>
+        <div class="drawer-accordion">
+          <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+            <div class="flex items-center gap-4">
+              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <span class="font-semibold text-sm">About Us</span>
+            </div>
+            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="drawer-acc-panel hidden pl-12 pb-1">
+            <a href="../about/ourStory.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
+            <a href="../about/howWeWork.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
+            <a href="../about/ourPartners.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Partners</a>
+          </div>
+        </div>
+        <div class="drawer-accordion">
+          <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+            <div class="flex items-center gap-4">
+              <svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+              <span class="font-semibold text-sm">Projects</span>
+            </div>
+            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="drawer-acc-panel hidden pl-12 pb-1">
+            <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
+          </div>
+        </div>
+        <div class="drawer-accordion">
+          <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+            <div class="flex items-center gap-4">
+              <svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+              <span class="font-semibold text-sm">Careers</span>
+            </div>
+            <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="drawer-acc-panel hidden pl-12 pb-1">
+            <a href="./internship.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Internship / On-the-Job Training</a>
+            <a href="./engineering.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Engineering</a>
+            <a href="./finance.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Finance</a>
+            <a href="./logistics.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Logistics</a>
+            <a href="./marketing.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Marketing</a>
+            <a href="./management.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Management</a>
+          </div>
+        </div>
+      </nav>
+      <a href="../index.html#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#009a9b] px-4 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] transition-colors">
+        Contact Us
+      </a>
+    </div>
+
+    <script>
+      const menuBtn = document.getElementById("mobileMenuBtn");
+      const closeBtn = document.getElementById("drawerCloseBtn");
+      const drawer = document.getElementById("mobileDrawer");
+      const overlay = document.getElementById("drawerOverlay");
+      function openDrawer() { drawer.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); document.body.style.overflow = "hidden"; }
+      function closeDrawer() { drawer.classList.add("-translate-x-full"); overlay.classList.add("hidden"); document.body.style.overflow = ""; }
+      menuBtn.addEventListener("click", openDrawer);
+      closeBtn.addEventListener("click", closeDrawer);
+      overlay.addEventListener("click", closeDrawer);
+      drawer.querySelectorAll(".drawer-link").forEach((link) => { link.addEventListener("click", closeDrawer); });
+      drawer.querySelectorAll(".drawer-acc-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const panel = btn.nextElementSibling;
+          const chevron = btn.querySelector(".acc-chevron");
+          panel.classList.toggle("hidden");
+          chevron.style.transform = panel.classList.contains("hidden") ? "" : "rotate(180deg)";
+        });
+      });
+    </script>
+
 
     <!-- HERO -->
     <section class="relative bg-slate-950 text-white overflow-hidden">
       <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 50%, #009a9b 0%, transparent 50%), radial-gradient(circle at 80% 20%, #EBE33B 0%, transparent 40%);"></div>
       <div class="relative mx-auto max-w-7xl px-4 py-20">
         <div class="max-w-3xl">
-          <span class="inline-block bg-[#009a9b]/20 text-[#009a9b] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Careers at PLC Technik</span>
-          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight">Finance</h1>
-          <p class="mt-6 text-slate-300 text-lg max-w-2xl">Keep our project economics sharp. The Finance team at PLC Technik handles everything from project billing and payables to cost monitoring and financial reporting — directly supporting our engineering operations.</p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#openings" class="inline-flex items-center justify-center rounded-xl bg-[#009a9b] px-6 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">View Open Positions</a>
-            <a href="#what-youll-do" class="inline-flex items-center justify-center rounded-xl border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-[#009a9b] transition-colors">What You'll Do</a>
+          <span class="inline-block bg-[#009a9b]/20 text-[#009a9b] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 fade-up">Careers at PLC Technik</span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight fade-up delay-1">Finance</h1>
+          <p class="mt-6 text-slate-300 text-lg max-w-2xl fade-up delay-2">Keep our project economics sharp. The Finance team at PLC Technik handles everything from project billing and payables to cost monitoring and financial reporting — directly supporting our engineering operations.</p>
+          <div class="mt-8 flex flex-wrap gap-3 fade-up delay-3">
+            <a href="#apply" class="inline-flex items-center justify-center rounded-xl bg-[#009a9b] px-6 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Apply Now</a>
+            <a href="#responsibilities" class="inline-flex items-center justify-center rounded-xl border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-[#009a9b] transition-colors">What You'll Do</a>
           </div>
         </div>
       </div>
@@ -94,47 +220,47 @@
       </div>
     </section>
 
-    <!-- WHAT YOU'LL DO -->
-    <section id="what-youll-do" class="mx-auto max-w-7xl px-4 py-16">
-      <h2 class="text-3xl font-extrabold tracking-tight">What Finance at PLC Technik Looks Like</h2>
-      <p class="mt-3 text-slate-600 max-w-2xl">We're a lean, project-driven company. Finance staff work closely with our engineering and management teams — you'll see exactly where the money goes and why it matters.</p>
+    <!-- RESPONSIBILITIES -->
+    <section id="responsibilities" class="mx-auto max-w-7xl px-4 py-16">
+      <h2 class="text-3xl font-extrabold tracking-tight fade-up">What Finance at PLC Technik Looks Like</h2>
+      <p class="mt-3 text-slate-600 max-w-2xl fade-up delay-1">We're a lean, project-driven company. Finance staff work closely with our engineering and management teams — you'll see exactly where the money goes and why it matters.</p>
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-3xl border border-slate-200 p-6 bg-white">
+        <div class="rounded-3xl border border-slate-200 p-6 bg-white fade-up">
           <div class="w-10 h-10 rounded-xl bg-[#009a9b] flex items-center justify-center mb-4">
             <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
           <h3 class="font-extrabold text-slate-900 mb-2">Project Billing & Invoicing</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Prepare and monitor billing milestones tied to project progress, and ensure timely invoicing to clients.</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 p-6 bg-white">
+        <div class="rounded-3xl border border-slate-200 p-6 bg-white fade-up delay-2">
           <div class="w-10 h-10 rounded-xl bg-[#009a9b] flex items-center justify-center mb-4">
             <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           <h3 class="font-extrabold text-slate-900 mb-2">Accounts Payable & Receivable</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Manage vendor payments for materials and subcontractors, and track collections from project clients.</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 p-6 bg-white">
+        <div class="rounded-3xl border border-slate-200 p-6 bg-white fade-up delay-3">
           <div class="w-10 h-10 rounded-xl bg-[#009a9b] flex items-center justify-center mb-4">
             <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
           <h3 class="font-extrabold text-slate-900 mb-2">Cost Monitoring</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Track actual vs. budgeted project costs, flag variances, and support the operations team with cost control data.</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 p-6 bg-white">
+        <div class="rounded-3xl border border-slate-200 p-6 bg-white fade-up delay-4">
           <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center mb-4">
             <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </div>
           <h3 class="font-extrabold text-slate-900 mb-2">Financial Reporting</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Prepare monthly financial summaries, cash flow statements, and management reports for leadership review.</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 p-6 bg-white">
+        <div class="rounded-3xl border border-slate-200 p-6 bg-white fade-up delay-5">
           <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center mb-4">
             <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
           </div>
           <h3 class="font-extrabold text-slate-900 mb-2">Tax & Compliance</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Support BIR compliance, VAT filing, payroll processing, and government remittances in coordination with the accounting team.</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 p-6 bg-white">
+        <div class="rounded-3xl border border-slate-200 p-6 bg-white fade-up delay-6">
           <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center mb-4">
             <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
@@ -144,77 +270,65 @@
       </div>
     </section>
 
-    <!-- OPEN POSITIONS -->
-    <section id="openings" class="bg-slate-50">
-      <div class="mx-auto max-w-7xl px-4 py-16">
-        <h2 class="text-3xl font-extrabold tracking-tight mb-8">Open Finance Positions</h2>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full bg-[#009a9b]">Finance</span>
-              <span class="text-xs text-slate-400 font-semibold">Full-time</span>
-            </div>
-            <h4 class="font-extrabold text-slate-900">Finance & Accounting Staff</h4>
-            <p class="text-slate-600 text-sm leading-relaxed flex-1">Handle day-to-day bookkeeping, project billing, payables, receivables, and financial reporting for a growing automation firm.</p>
-            <div class="text-xs text-slate-400">📍 Lapu-Lapu City, Cebu</div>
-            <a href="../index.html#contact" class="mt-2 inline-flex items-center justify-center rounded-xl bg-[#009a9b] px-4 py-2 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Apply →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- QUALIFICATIONS -->
-    <section class="mx-auto max-w-7xl px-4 py-16">
-      <h2 class="text-3xl font-extrabold tracking-tight mb-8">What We Look For</h2>
-      <div class="grid gap-6 sm:grid-cols-2">
-        <div class="rounded-3xl border border-slate-200 p-6">
+    <section class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 py-16">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-8 fade-up">What We Look For</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+        <div class="rounded-3xl border border-slate-200 p-6 fade-up">
           <h3 class="font-extrabold text-[#009a9b] mb-3">Skills & Background</h3>
           <ul class="text-slate-700 text-sm space-y-2">
-            <li>• BS Accountancy or BS Management Accounting graduate</li>
-            <li>• Familiarity with QuickBooks, Xero, or similar accounting software</li>
-            <li>• Experience with BIR compliance and Philippine tax regulations</li>
-            <li>• Strong Excel / spreadsheet skills</li>
-            <li>• Project-based billing experience is a plus</li>
+              <li>• BS Accountancy or BS Management Accounting graduate</li>
+              <li>• Familiarity with QuickBooks, Xero, or similar accounting software</li>
+              <li>• Experience with BIR compliance and Philippine tax regulations</li>
+              <li>• Strong Excel / spreadsheet skills</li>
+              <li>• Project-based billing experience is a plus</li>
           </ul>
         </div>
-        <div class="rounded-3xl border border-slate-200 p-6">
+        <div class="rounded-3xl border border-slate-200 p-6 fade-up delay-2">
           <h3 class="font-extrabold text-[#009a9b] mb-3">Professional Qualities</h3>
           <ul class="text-slate-700 text-sm space-y-2">
-            <li>• High attention to detail and accuracy</li>
-            <li>• Comfortable working in a small, fast-moving team</li>
-            <li>• Able to manage multiple project accounts simultaneously</li>
-            <li>• Proactive in flagging financial risks or discrepancies</li>
-            <li>• CPA license is an advantage but not required</li>
+              <li>• High attention to detail and accuracy</li>
+              <li>• Comfortable working in a small, fast-moving team</li>
+              <li>• Able to manage multiple project accounts simultaneously</li>
+              <li>• Proactive in flagging financial risks or discrepancies</li>
+              <li>• CPA license is an advantage but not required</li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <!-- APPLY CTA -->
-    <section class="bg-slate-50">
-      <div class="mx-auto max-w-7xl px-4 py-12">
-        <div class="rounded-3xl bg-slate-950 text-white p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div>
-            <h3 class="text-2xl font-extrabold mb-2">Ready to Apply?</h3>
-            <p class="text-slate-400 text-sm max-w-xl">Send your resume and a brief introduction to our HR team. Mention "Finance Application" in the subject line.</p>
-            <div class="mt-4 text-sm text-slate-300">
-              <span class="font-semibold text-white">HR Email:</span>
-              <a href="mailto:info@plcsystems.com.ph" class="underline hover:text-white ml-1">info@plcsystems.com.ph</a>
-            </div>
-          </div>
-          <a href="../index.html#contact" class="shrink-0 inline-flex items-center justify-center rounded-xl bg-[#009a9b] px-6 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Send Application →</a>
         </div>
       </div>
     </section>
 
-    <!-- OTHER POSITIONS -->
-    <section class="mx-auto max-w-7xl px-4 py-12">
-      <h3 class="text-xl font-extrabold mb-6">Other Career Tracks</h3>
-      <div class="flex flex-wrap gap-3">
-        <a href="./internship.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors">Internship / OJT →</a>
-        <a href="./engineering.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors">Engineering →</a>
-        <a href="./marketing.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors">Marketing →</a>
-        <a href="./management.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors">Management →</a>
+    <!-- APPLY -->
+    <section id="apply" class="mx-auto max-w-7xl px-4 py-16">
+      <div class="rounded-3xl bg-slate-950 text-white p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <h3 class="text-2xl font-extrabold mb-2 fade-up">Ready to Apply?</h3>
+          <p class="text-slate-400 text-sm max-w-xl">Send your resume and a brief introduction to our HR team. Mention "Finance Application" in the subject line.</p>
+          <div class="mt-4 text-sm text-slate-300">
+            <span class="font-semibold text-white">HR Email:</span>
+            <a href="mailto:info@plcsystems.com.ph" class="underline hover:text-white ml-1">info@plcsystems.com.ph</a>
+          </div>
+          <div class="mt-1 text-sm text-slate-300">
+            <span class="font-semibold text-white">Phone:</span>
+            <a href="tel:+639178883003" class="underline hover:text-white ml-1">+63 917 888 3003</a>
+          </div>
+        </div>
+        <a href="../index.html#contact" class="shrink-0 inline-flex items-center justify-center rounded-xl bg-[#009a9b] px-6 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Send Application →</a>
+      </div>
+    </section>
+
+    <!-- OTHER TRACKS -->
+    <section class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <h3 class="text-xl font-extrabold mb-6 fade-up">Other Career Tracks</h3>
+        <div class="flex flex-wrap gap-3">
+          <a href="./internship.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors fade-up">Internship / OJT →</a>
+          <a href="./engineering.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors fade-up delay-2">Engineering →</a>
+          <a href="./logistics.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors fade-up delay-4">Logistics →</a>
+          <a href="./marketing.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors fade-up delay-5">Marketing →</a>
+          <a href="./management.html" class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#009a9b] hover:text-[#009a9b] transition-colors fade-up delay-1">Management →</a>
+        </div>
       </div>
     </section>
 
@@ -239,9 +353,10 @@
           <div>
             <h4 class="text-white font-extrabold mb-4">Careers</h4>
             <ul class="space-y-2 text-sm">
-              <li><a href="./internship.html" class="hover:text-white">Internship / OJT</a></li>
+              <li><a href="./internship.html" class="hover:text-white">Internship / On-the-Job Training</a></li>
               <li><a href="./engineering.html" class="hover:text-white">Engineering</a></li>
               <li><a href="./finance.html" class="text-[#009a9b] font-bold">Finance</a></li>
+              <li><a href="./logistics.html" class="hover:text-white">Logistics</a></li>
               <li><a href="./marketing.html" class="hover:text-white">Marketing</a></li>
               <li><a href="./management.html" class="hover:text-white">Management</a></li>
             </ul>
@@ -258,5 +373,21 @@
       </div>
     </footer>
 
+    <script>
+      (function() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
