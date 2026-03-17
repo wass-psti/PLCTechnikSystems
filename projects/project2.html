@@ -20,17 +20,21 @@
 
     /* ── Consistent content typography ── */
     .section-label      { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: #009a9b; }
-    .phase-title        { font-size: 1.05rem; font-weight: 800; color: #0f172a; }
-    .phase-date         { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-top: 2px; }
+    .phase-title        { font-size: 1.15rem; font-weight: 800; color: #0f172a; }
+    .phase-date         { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; margin-top: 3px; }
     .bullet-sublabel    { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; }
-    .bullet-item        { font-size: 1rem; color: #475569; line-height: 1.65; }
-    .scope-tag          { font-size: 0.875rem; font-weight: 600; }
+    .bullet-item        { font-size: 1rem; color: #475569; line-height: 1.7; }
+    .scope-tag          { font-size: 0.9rem; font-weight: 600; }
     .protocol-num       { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; }
-    .protocol-name      { font-size: 1rem; font-weight: 800; color: #0f172a; }
-    .protocol-desc      { font-size: 0.875rem; color: #64748b; margin-top: 2px; }
-    .sidebar-label      { font-size: 0.875rem; font-weight: 600; color: #94a3b8; }
-    .sidebar-value      { font-size: 0.875rem; font-weight: 700; color: #0f172a; text-align: right; }
+    .protocol-name      { font-size: 1.05rem; font-weight: 800; color: #0f172a; }
+    .protocol-desc      { font-size: 0.9rem; color: #64748b; margin-top: 2px; line-height: 1.5; }
+    .sidebar-label      { font-size: 0.9rem; font-weight: 600; color: #94a3b8; }
+    .sidebar-value      { font-size: 0.9rem; font-weight: 700; color: #0f172a; text-align: right; }
     .sidebar-section-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: #009a9b; }
+
+    @media (max-width: 640px) {
+      .phase-title { font-size: 1.05rem; }
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden">
@@ -198,14 +202,14 @@
   <div class="mx-auto max-w-7xl px-6 py-14 grid gap-10 lg:grid-cols-3">
 
     <!-- Main Column -->
-    <div class="lg:col-span-2 space-y-10">
+    <div class="lg:col-span-2 space-y-12">
 
       <!-- Description -->
-      <div class="fade-up space-y-4">
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+      <div class="fade-up space-y-5">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           PLC Systems Technik Inc. successfully engineered and deployed a remote water monitoring and telemetry system for a major bulk water supplier in Cebu, enabling real-time monitoring of water distribution quality and flow conditions across multiple injection points within the supply network.
         </p>
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           The project involved the supply, installation, and integration of flow measurement instrumentation, water quality analyzers, telemetry communication systems, PLC automation, and a custom-developed remote monitoring platform. The primary objective was to provide the utility operator with centralized visibility of water quality parameters and distribution flow performance across geographically distributed injection points — with the farthest injection point located approximately <strong style="color:#1e293b;">25 kilometers</strong> from the central monitoring station, requiring a robust long-distance telemetry infrastructure.
         </p>
       </div>
@@ -226,45 +230,45 @@
       </div>
 
       <!-- Distributed Injection Points -->
-      <div class="fade-up delay-1 space-y-4">
+      <div class="fade-up delay-1 space-y-5">
         <div class="section-label">Distributed Water Injection Network</div>
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           The water distribution system consists of <strong style="color:#1e293b;">four separate water injection points</strong>, each located in different areas of the supply network. Each injection point was independently equipped with automation controllers, field instrumentation, and telemetry modules — forming a distributed monitoring architecture capable of transmitting process data from all remote locations to a single central monitoring facility.
         </p>
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           The geographic spread of the injection points — with one located 25 kilometers away — required a reliable communication infrastructure designed for uninterrupted long-distance data transmission regardless of network conditions in the field.
         </p>
       </div>
 
       <!-- Instrumentation -->
-      <div class="fade-up delay-2 space-y-5">
+      <div class="fade-up delay-2 space-y-6">
         <div class="section-label">Instrumentation &amp; Measurement Systems</div>
 
-        <div class="border-l-2 border-[#009a9b] pl-5 space-y-3">
+        <div class="border-l-2 border-[#009a9b] pl-6 space-y-4">
           <div class="phase-title">Flow Measurement</div>
-          <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+          <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
             <strong style="color:#1e293b;">Siemens MAG 8000 electromagnetic flowmeters</strong> were installed at each of the four injection points to provide accurate, continuous measurement of water flow rate and totalized volume within the distribution network. The MAG 8000 was selected for its proven reliability in water utility applications and its ability to provide accurate volume measurement even under varying flow conditions.
           </p>
         </div>
 
-        <div class="border-l-2 border-[#009a9b] pl-5 space-y-3">
+        <div class="border-l-2 border-[#009a9b] pl-6 space-y-4">
           <div class="phase-title">Water Quality Monitoring</div>
-          <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+          <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
             <strong style="color:#1e293b;">Endress+Hauser CDP20 analyzers</strong> were deployed at each injection point to continuously measure key water quality parameters, ensuring compliance with water treatment standards and enabling real-time monitoring of distribution quality conditions across the network.
           </p>
           <div class="bullet-sublabel pt-1">Parameters Monitored</div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-2">
-            <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+            <div class="border-l-2 border-[#009a9b] pl-3 py-2">
               <div class="protocol-num">01</div>
               <div class="protocol-name">pH Level</div>
               <div class="protocol-desc">Acidity / alkalinity monitoring</div>
             </div>
-            <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+            <div class="border-l-2 border-[#009a9b] pl-3 py-2">
               <div class="protocol-num">02</div>
               <div class="protocol-name">Turbidity</div>
               <div class="protocol-desc">Water clarity and particulate levels</div>
             </div>
-            <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+            <div class="border-l-2 border-[#009a9b] pl-3 py-2">
               <div class="protocol-num">03</div>
               <div class="protocol-name">Residual Chlorine</div>
               <div class="protocol-desc">Disinfection compliance monitoring</div>
@@ -272,9 +276,9 @@
           </div>
         </div>
 
-        <div class="border-l-2 border-slate-200 pl-5 space-y-3">
+        <div class="border-l-2 border-slate-200 pl-6 space-y-4">
           <div class="phase-title">Pressure Monitoring</div>
-          <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+          <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
             Pressure transmitters were installed within the distribution pipeline network at each injection point to monitor system hydraulic pressure and enable early detection of pressure anomalies, leakage events, or supply disruptions within the distribution network.
           </p>
         </div>
@@ -283,66 +287,66 @@
       <!-- Automation & Telemetry -->
       <div class="fade-up delay-2 space-y-5">
         <div class="section-label">Automation &amp; Telemetry Architecture</div>
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           Each injection point was equipped with a local automation controller based on the <strong style="color:#1e293b;">Siemens SIMATIC S7-1200 PLC</strong>, responsible for collecting data from all field instrumentation and managing local process signals at each distributed site.
         </p>
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           To enable reliable long-distance communication between the remote injection points and the central monitoring facility, the system utilizes <strong style="color:#1e293b;">EWON Flexy 205 industrial telemetry modules</strong>. These modules provide secure remote connectivity for process data transmission, allowing real-time field data to flow continuously from each remote location to the central monitoring station — giving operators full visibility of the entire water distribution network at all times.
         </p>
       </div>
 
       <!-- Watchdog DataSpy -->
-      <div class="fade-up delay-3 space-y-4">
+      <div class="fade-up delay-3 space-y-5">
         <div class="section-label">Watchdog DataSpy Remote Monitoring Platform</div>
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           A key deliverable of the project was the development of a custom remote monitoring platform called <strong style="color:#1e293b;">Watchdog DataSpy</strong>, designed specifically for monitoring distributed water infrastructure. The platform was developed using a <strong style="color:#1e293b;">VB.NET software architecture</strong> and integrated with <strong style="color:#1e293b;">Siemens WinCC Unified SCADA</strong> to provide a unified monitoring environment accessible from the central facility.
         </p>
-        <p style="font-size:1rem; line-height:1.8; color:#475569; text-align:justify;">
+        <p style="font-size:1.05rem; line-height:1.85; color:#475569; text-align:justify;">
           Watchdog DataSpy enables operators to view all four injection point data streams from a single central interface — allowing rapid detection of abnormal conditions, quality deviations, or flow irregularities anywhere in the distribution network without requiring personnel to physically visit remote sites.
         </p>
         <div class="bullet-sublabel pt-1">Platform Monitors</div>
-        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-2 mt-2">
-          <div class="bullet-item flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Flow rate and totalized water volume</div>
-          <div class="bullet-item flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>pH levels across all injection points</div>
-          <div class="bullet-item flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Turbidity levels and water clarity</div>
-          <div class="bullet-item flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Residual chlorine concentration</div>
-          <div class="bullet-item flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Pipeline pressure conditions</div>
-          <div class="bullet-item flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Alarm and deviation notifications</div>
+        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
+          <div class="bullet-item flex items-start gap-2.5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Flow rate and totalized water volume</div>
+          <div class="bullet-item flex items-start gap-2.5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>pH levels across all injection points</div>
+          <div class="bullet-item flex items-start gap-2.5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Turbidity levels and water clarity</div>
+          <div class="bullet-item flex items-start gap-2.5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Residual chlorine concentration</div>
+          <div class="bullet-item flex items-start gap-2.5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Pipeline pressure conditions</div>
+          <div class="bullet-item flex items-start gap-2.5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Alarm and deviation notifications</div>
         </div>
       </div>
 
       <!-- Technology Stack -->
-      <div class="fade-up delay-3 space-y-4">
+      <div class="fade-up delay-3 space-y-5">
         <div class="section-label">Technology Stack</div>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+          <div class="border-l-2 border-[#009a9b] pl-3 py-2">
             <div class="protocol-num">Flow Meters</div>
-            <div class="protocol-name" style="font-size:0.9rem;">Siemens MAG 8000</div>
+            <div class="protocol-name" style="font-size:0.95rem;">Siemens MAG 8000</div>
             <div class="protocol-desc">Electromagnetic flowmeters</div>
           </div>
-          <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+          <div class="border-l-2 border-[#009a9b] pl-3 py-2">
             <div class="protocol-num">Water Quality</div>
-            <div class="protocol-name" style="font-size:0.9rem;">E+H CDP20</div>
+            <div class="protocol-name" style="font-size:0.95rem;">E+H CDP20</div>
             <div class="protocol-desc">Multi-parameter analyzers</div>
           </div>
-          <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+          <div class="border-l-2 border-[#009a9b] pl-3 py-2">
             <div class="protocol-num">PLC</div>
-            <div class="protocol-name" style="font-size:0.9rem;">Siemens S7-1200</div>
+            <div class="protocol-name" style="font-size:0.95rem;">Siemens S7-1200</div>
             <div class="protocol-desc">Local automation controllers</div>
           </div>
-          <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+          <div class="border-l-2 border-[#009a9b] pl-3 py-2">
             <div class="protocol-num">Telemetry</div>
-            <div class="protocol-name" style="font-size:0.9rem;">EWON Flexy 205</div>
+            <div class="protocol-name" style="font-size:0.95rem;">EWON Flexy 205</div>
             <div class="protocol-desc">Industrial remote connectivity</div>
           </div>
-          <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+          <div class="border-l-2 border-[#009a9b] pl-3 py-2">
             <div class="protocol-num">SCADA</div>
-            <div class="protocol-name" style="font-size:0.9rem;">WinCC Unified</div>
+            <div class="protocol-name" style="font-size:0.95rem;">WinCC Unified</div>
             <div class="protocol-desc">Siemens supervisory platform</div>
           </div>
-          <div class="border-l-2 border-[#009a9b] pl-3 py-1">
+          <div class="border-l-2 border-[#009a9b] pl-3 py-2">
             <div class="protocol-num">Custom App</div>
-            <div class="protocol-name" style="font-size:0.9rem;">Watchdog DataSpy</div>
+            <div class="protocol-name" style="font-size:0.95rem;">Watchdog DataSpy</div>
             <div class="protocol-desc">VB.NET remote monitoring</div>
           </div>
         </div>
@@ -386,7 +390,7 @@
           </div>
           <div class="flex justify-between gap-4">
             <span class="sidebar-label">Status</span>
-            <span class="inline-flex items-center gap-1.5 font-bold text-emerald-600" style="font-size:0.875rem;">
+            <span class="inline-flex items-center gap-1.5 font-bold text-emerald-600" style="font-size:0.9rem;">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>Completed
             </span>
           </div>
@@ -394,9 +398,9 @@
       </div>
 
       <div class="bg-slate-950 p-6 text-white" style="border-radius:0.75rem">
-        <div style="font-size:0.9rem; font-weight:700;" class="mb-1">Have a similar project?</div>
-        <p style="font-size:0.875rem; color:#94a3b8; line-height:1.6;" class="mb-4">We can engineer a remote monitoring solution for your water infrastructure.</p>
-        <a href="../index.html#contact" class="block text-center rounded-lg px-4 py-3 font-semibold text-white bg-[#009a9b] hover:bg-[#EBE33B] hover:text-slate-900 transition-colors" style="font-size:0.875rem;">Get in Touch</a>
+        <div style="font-size:0.95rem; font-weight:700;" class="mb-1">Have a similar project?</div>
+        <p style="font-size:0.9rem; color:#94a3b8; line-height:1.65;" class="mb-4">We can engineer a remote monitoring solution for your water infrastructure.</p>
+        <a href="../index.html#contact" class="block text-center rounded-lg px-4 py-3 font-semibold text-white bg-[#009a9b] hover:bg-[#EBE33B] hover:text-slate-900 transition-colors" style="font-size:0.9rem;">Get in Touch</a>
       </div>
 
     </div>
