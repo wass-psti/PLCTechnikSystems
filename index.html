@@ -45,7 +45,7 @@
 
       .project-card-img {
         width: 100%;
-        height: 200px;
+        height: 220px;
         object-fit: cover;
         display: block;
         background: #f1f5f9;
@@ -63,7 +63,7 @@
 
       .project-card-img-placeholder {
         width: 100%;
-        height: 200px;
+        height: 220px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,7 +76,7 @@
       }
 
       .project-card-body {
-        padding: 1.25rem 1.5rem 1.5rem;
+        padding: 1.5rem 1.75rem 1.75rem;
         display: flex;
         flex-direction: column;
         flex: 1;
@@ -85,39 +85,42 @@
       .project-card-tag {
         display: inline-flex;
         align-items: center;
-        font-size: 0.68rem;
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        margin-bottom: 0.6rem;
-        padding: 3px 10px;
+        margin-bottom: 0.75rem;
+        padding: 4px 12px;
         border-radius: 2px;
         color: #ffffff;
         width: fit-content;
+        line-height: 1.4;
       }
 
       .project-card-tag::before {
         display: none;
       }
 
+      /* Bigger, bolder title */
       .project-card-title {
-        font-size: 1rem;
+        font-size: 1.15rem;
         font-weight: 800;
         line-height: 1.35;
         color: #0f172a;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.65rem;
       }
 
+      /* Bigger, more readable description */
       .project-card-desc {
-        font-size: 0.85rem;
-        color: #64748b;
-        line-height: 1.65;
-        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        color: #475569;
+        line-height: 1.75;
+        margin-bottom: 1rem;
         flex: 1;
       }
 
       .card-accent-line {
-        height: 2px;
+        height: 3px;
         flex-shrink: 0;
       }
 
@@ -137,6 +140,19 @@
         opacity: 0;
         pointer-events: none;
         tab-index: -1;
+      }
+
+      /* Mobile-friendly card grid */
+      @media (max-width: 640px) {
+        .project-card-title {
+          font-size: 1.1rem;
+        }
+        .project-card-desc {
+          font-size: 0.95rem;
+        }
+        .project-card-body {
+          padding: 1.25rem 1.25rem 1.5rem;
+        }
       }
     </style>
   </head>
@@ -373,12 +389,12 @@
       <div class="relative mx-auto max-w-7xl px-4 py-16">
         <div class="max-w-2xl mb-10">
           <h3 class="text-3xl font-extrabold tracking-tight text-[#009a9b]">About Us</h3>
-          <p class="mt-3 text-black/80">
+          <p class="mt-3 text-black/80 text-base leading-relaxed">
             PLC Systems Technik Inc. is an industrial automation company specializing in PLC programming, control system integration, and commissioning for manufacturing, power, and process industries. The company provides reliable solutions for system upgrades, troubleshooting, and automation projects to ensure efficient and stable plant operations.
           </p>
         </div>
 
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
         <!-- PROJECT 1 -->
         <a href="./projects/project1.html" class="project-card" style="text-decoration: none; color: inherit">
@@ -393,9 +409,9 @@
             <span class="project-card-tag" style="background: #009a9b">Limestone Mine Sizing Plant Automation</span>
             <div class="project-card-title">Greenfield Process Control Engineering for the Mining Industry</div>
             <p class="project-card-desc">PLC Systems Technik, Inc. successfully engineered and implemented a complete automation and SCADA system for a limestone mine sizing plant, delivering a modern control architecture designed to support reliable and efficient mineral processing operations.</p>
-            <span class="inline-flex items-center gap-1 text-xs font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
               Learn More
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             </span>
           </div>
         </a>
@@ -413,9 +429,9 @@
             <span class="project-card-tag" style="background: #009a9b">Bulk Water Distribution Monitoring & Telemetry</span>
             <div class="project-card-title">Remote Water Quality Monitoring for a Major Bulk Water Supplier in Cebu</div>
             <p class="project-card-desc">PLC Systems Technik, Inc. successfully engineered and deployed a remote water monitoring and telemetry system for a major bulk water supplier in Cebu, enabling real-time monitoring of water distribution quality and flow conditions across multiple injection points within the supply network.</p>
-            <span class="inline-flex items-center gap-1 text-xs font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
               Learn More
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             </span>
           </div>
         </a>
@@ -433,9 +449,9 @@
             <span class="project-card-tag" style="background: #009a9b">PLC Migration</span>
             <div class="project-card-title">PLC Migration — S7-300 to S7-1500 at Ginebra San Miguel Mandaue Plant</div>
             <p class="project-card-desc">Migrating the plant's automation system from the legacy S7-300 platform to the modern S7-1500 series for improved performance and future-readiness.</p>
-            <span class="inline-flex items-center gap-1 text-xs font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
               Learn More
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             </span>
           </div>
         </a>
@@ -453,9 +469,9 @@
             <span class="project-card-tag" style="background: #009a9b">BMS Integration</span>
             <div class="project-card-title">Chiller and Pump Integration to Building Management System</div>
             <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into an existing BMS using PLC interface and industrial communication protocols.</p>
-            <span class="inline-flex items-center gap-1 text-xs font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
               Learn More
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             </span>
           </div>
         </a>
@@ -473,9 +489,9 @@
             <span class="project-card-tag" style="background: #009a9b">Control System Upgrade</span>
             <div class="project-card-title">Control Panel Retrofit with New PLC System</div>
             <p class="project-card-desc">Replacement of an obsolete control panel with a modern PLC-based system including new wiring, I/O modules, power supply, and HMI interface.</p>
-            <span class="inline-flex items-center gap-1 text-xs font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
               Learn More
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             </span>
           </div>
         </a>
@@ -493,9 +509,9 @@
             <span class="project-card-tag" style="background: #009a9b">SCADA / PLC Integration</span>
             <div class="project-card-title">PLC and SCADA Integration for Plant Monitoring</div>
             <p class="project-card-desc">Integrating multiple PLC systems into a SCADA network for centralized monitoring and control — including communication setup, alarms, trends, and operator screens.</p>
-            <span class="inline-flex items-center gap-1 text-xs font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
+            <span class="inline-flex items-center gap-1.5 text-sm font-bold text-[#009a9b] uppercase tracking-widest mt-auto pt-2">
               Learn More
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             </span>
           </div>
         </a>
