@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Limestone Mine Sizing Plant Automation | Watchdog Automation</title>
+  <title>Limestone Mine Sizing Plant Automation | PLC Systems Technik Inc.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -19,23 +19,6 @@
       margin-bottom: 0.6rem;
     }
 
-    .tech-row {
-      display: grid;
-      grid-template-columns: 165px 1fr;
-      gap: 1.25rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid #f1f5f9;
-      align-items: start;
-    }
-    .tech-row:last-child { border-bottom: none; }
-    @media (max-width: 480px) {
-      .tech-row { grid-template-columns: 1fr; gap: 0.2rem; }
-    }
-    .tech-key { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #009a9b; }
-    .tech-val { font-size: 1.0625rem; color: #334155; line-height: 1.7; }
-
-    .phase-title   { font-size: 1.1rem; font-weight: 800; color: #0f172a; }
-    .phase-date    { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-top: 2px; }
     .protocol-num  { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; }
     .protocol-name { font-size: 1rem; font-weight: 800; color: #0f172a; }
     .protocol-desc { font-size: 0.875rem; color: #64748b; margin-top: 2px; line-height: 1.5; }
@@ -44,194 +27,194 @@
     .sidebar-value         { font-size: 0.9rem; font-weight: 700; color: #0f172a; text-align: right; }
     .sidebar-section-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: #009a9b; }
 
-    @media (min-width: 1024px) {
-      .sidebar-sticky { position: sticky; top: 5.5rem; }
+    /* ── Grid card list ── */
+    .sys-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+    @media (max-width: 600px) { .sys-grid { grid-template-columns: 1fr; } }
+    .sys-card {
+      display: flex; align-items: center; gap: 0.65rem;
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.6rem;
+      padding: 0.75rem 1rem; font-size: 0.875rem; font-weight: 600; color: #334155; line-height: 1.4;
     }
+    .sys-card-dot { width: 7px; height: 7px; border-radius: 50%; background: #009a9b; flex-shrink: 0; }
 
-    /* ── Scroll-triggered fade-in ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+    /* ── Left-border pill list ── */
+    .pill-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .pill-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.65rem 1rem; background: #f8fafc;
+      border-left: 3px solid #009a9b; border-radius: 0 0.5rem 0.5rem 0;
+      font-size: 0.9375rem; font-weight: 600; color: #334155;
     }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .fade-left {
-      opacity: 0;
-      transform: translateX(-24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    .pill-item-body { display: flex; flex-direction: column; gap: 0.15rem; }
+    .pill-item-title { font-weight: 800; color: #1e293b; }
+    .pill-item-desc  { font-weight: 500; color: #64748b; font-size: 0.875rem; }
+
+    .lg\:col-span-2 p,
+    .lg\:col-span-2 .pill-item,
+    .lg\:col-span-2 .pill-item-desc { text-align: justify; }
+
+    @media (min-width: 1024px) { .sidebar-sticky { position: sticky; top: 5.5rem; } }
+
+    .fade-up  { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible  { opacity: 1; transform: translateY(0); }
+    .fade-left { opacity: 0; transform: translateX(-24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-left.visible { opacity: 1; transform: translateX(0); }
-    .delay-100 { transition-delay: 0.10s; }
     .delay-200 { transition-delay: 0.20s; }
-    .delay-300 { transition-delay: 0.30s; }
-    .delay-400 { transition-delay: 0.40s; }
-    .delay-500 { transition-delay: 0.50s; }
-    .delay-600 { transition-delay: 0.60s; }
   </style>
 </head>
 <body class="bg-white text-slate-900">
 
 <!-- ═══════════════════ HEADER ═══════════════════ -->
-  <header class="fixed left-0 right-0 top-0 z-50 bg-white border-b border-slate-100">
-    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-1 mr-auto">
-        <button id="mobileMenuBtn" class="md:hidden p-2 text-black" aria-label="Open menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-        <a href="../index.html" class="flex items-center shrink-0">
-          <img src="../assets/pictures/PLCLogo.png?v=1" alt="PLC Systems Technik Inc." class="h-8 md:h-12 w-auto object-contain" />
-          <img src="../assets/pictures/PSTILogo2.png?v=1" alt="PLC Systems Technik Inc." class="h-8 md:h-12 w-auto object-contain" />
-        </a>
-      </div>
-      <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
-        <div class="relative group">
-          <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">About Us
-            <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
-          </button>
-          <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
-            <ul class="py-2">
-              <li><a href="../about/ourStory.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Our Story</a></li>
-              <li><a href="../about/howWeWork.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">How We Work</a></li>
-              <li><a href="../about/ourPartners.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Our Partners</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 px-4 py-2 text-[#009a9b]">Projects
-            <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
-          </button>
-          <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
-            <ul class="py-2">
-              <li><a href="../index.html#projects" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Featured Projects</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">Careers
-            <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
-          </button>
-          <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
-            <ul class="py-2">
-              <li><a href="../careers/internship.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Internship / On-the-Job Training</a></li>
-              <li><a href="../careers/engineering.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Engineering</a></li>
-              <li><a href="../careers/finance.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Finance</a></li>
-              <li><a href="../careers/logistics.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Logistics</a></li>
-              <li><a href="../careers/marketing.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Marketing</a></li>
-              <li><a href="../careers/management.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Management</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="flex justify-end">
-        <a href="../index.html#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#009a9b] px-4 py-2 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Contact Us</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ═══ MOBILE DRAWER OVERLAY ═══ -->
-  <div id="drawerOverlay" class="fixed inset-0 bg-black/60 z-[998] hidden md:hidden" aria-hidden="true"></div>
-
-  <!-- ═══ MOBILE DRAWER ═══ -->
-  <div id="mobileDrawer" class="fixed top-0 left-0 h-full w-72 bg-[#111] z-[999] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
-      <div class="flex items-center gap-2">
-        <img src="../assets/pictures/PLCLogo.png?v=1" alt="Logo" class="h-8 w-auto" />
-        <img src="../assets/pictures/PSTILogo2.png?v=1" alt="PLC Systems Technik Inc." class="h-8 w-auto" />
-      </div>
-      <button id="drawerCloseBtn" class="text-white/60 hover:text-white p-1">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+<header class="fixed left-0 right-0 top-0 z-50 bg-white border-b border-slate-100">
+  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-1 mr-auto">
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-black" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
-    </div>
-    <nav class="flex-1 overflow-y-auto py-4 px-3">
-      <a href="../index.html#hero" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span class="font-semibold text-sm">Home</span>
+      <a href="../index.html" class="flex items-center shrink-0">
+        <img src="../assets/pictures/PLCLogo.png?v=1" alt="PLC Systems Technik Inc." class="h-8 md:h-12 w-auto object-contain" />
+        <img src="../assets/pictures/PSTILogo2.png?v=1" alt="PLC Systems Technik Inc." class="h-8 md:h-12 w-auto object-contain" />
       </a>
-      <div class="drawer-accordion">
-        <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-          <div class="flex items-center gap-4">
-            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            <span class="font-semibold text-sm">About Us</span>
-          </div>
-          <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+    </div>
+    <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
+      <div class="relative group">
+        <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">About Us
+          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
         </button>
-        <div class="drawer-acc-panel hidden pl-12 pb-1">
-          <a href="../about/ourStory.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
-          <a href="../about/howWeWork.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
-          <a href="../about/ourPartners.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Partners</a>
+        <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
+          <ul class="py-2">
+            <li><a href="../about/ourStory.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Our Story</a></li>
+            <li><a href="../about/howWeWork.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">How We Work</a></li>
+            <li><a href="../about/ourPartners.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Our Partners</a></li>
+          </ul>
         </div>
       </div>
-      <div class="drawer-accordion">
-        <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-          <div class="flex items-center gap-4">
-            <svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
-            <span class="font-semibold text-sm">Projects</span>
-          </div>
-          <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      <div class="relative group">
+        <button class="flex items-center gap-1 px-4 py-2 text-[#009a9b]">Projects
+          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
         </button>
-        <div class="drawer-acc-panel hidden pl-12 pb-1">
-          <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
+        <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
+          <ul class="py-2">
+            <li><a href="../index.html#projects" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Featured Projects</a></li>
+          </ul>
         </div>
       </div>
-      <div class="drawer-accordion">
-        <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-          <div class="flex items-center gap-4">
-            <svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
-            <span class="font-semibold text-sm">Careers</span>
-          </div>
-          <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      <div class="relative group">
+        <button class="flex items-center gap-1 px-4 py-2 text-black hover:text-[#009a9b]">Careers
+          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="#009a9b" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
         </button>
-        <div class="drawer-acc-panel hidden pl-12 pb-1">
-          <a href="../careers/internship.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Internship / On-the-Job Training</a>
-          <a href="../careers/engineering.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Engineering</a>
-          <a href="../careers/finance.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Finance</a>
-          <a href="../careers/logistics.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Logistics</a>
-          <a href="../careers/marketing.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Marketing</a>
-          <a href="../careers/management.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Management</a>
+        <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="h-0.5 bg-[#009a9b] rounded-t-xl"></div>
+          <ul class="py-2">
+            <li><a href="../careers/internship.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Internship / On-the-Job Training</a></li>
+            <li><a href="../careers/engineering.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Engineering</a></li>
+            <li><a href="../careers/finance.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Finance</a></li>
+            <li><a href="../careers/logistics.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Logistics</a></li>
+            <li><a href="../careers/marketing.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Marketing</a></li>
+            <li><a href="../careers/management.html" class="block px-4 py-2 text-sm text-black hover:bg-slate-50">Management</a></li>
+          </ul>
         </div>
       </div>
     </nav>
-    <a href="../index.html#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#009a9b] px-4 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">
-      Contact Us
-    </a>
+    <div class="flex justify-end">
+      <a href="../index.html#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#009a9b] px-4 py-2 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Contact Us</a>
+    </div>
   </div>
+</header>
 
-  <script>
-    const menuBtn = document.getElementById("mobileMenuBtn");
-    const closeBtn = document.getElementById("drawerCloseBtn");
-    const drawer = document.getElementById("mobileDrawer");
-    const overlay = document.getElementById("drawerOverlay");
-    function openDrawer() { drawer.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); document.body.style.overflow = "hidden"; }
-    function closeDrawer() { drawer.classList.add("-translate-x-full"); overlay.classList.add("hidden"); document.body.style.overflow = ""; }
-    menuBtn.addEventListener("click", openDrawer);
-    closeBtn.addEventListener("click", closeDrawer);
-    overlay.addEventListener("click", closeDrawer);
-    drawer.querySelectorAll(".drawer-link").forEach(link => link.addEventListener("click", closeDrawer));
-    drawer.querySelectorAll(".drawer-acc-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const panel = btn.nextElementSibling;
-        const chevron = btn.querySelector(".acc-chevron");
-        panel.classList.toggle("hidden");
-        chevron.style.transform = panel.classList.contains("hidden") ? "" : "rotate(180deg)";
-      });
+<!-- ═══ MOBILE DRAWER OVERLAY ═══ -->
+<div id="drawerOverlay" class="fixed inset-0 bg-black/60 z-[998] hidden md:hidden" aria-hidden="true"></div>
+
+<!-- ═══ MOBILE DRAWER ═══ -->
+<div id="mobileDrawer" class="fixed top-0 left-0 h-full w-72 bg-[#111] z-[999] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+    <div class="flex items-center gap-2">
+      <img src="../assets/pictures/PLCLogo.png?v=1" alt="Logo" class="h-8 w-auto" />
+      <img src="../assets/pictures/PSTILogo2.png?v=1" alt="PLC Systems Technik Inc." class="h-8 w-auto" />
+    </div>
+    <button id="drawerCloseBtn" class="text-white/60 hover:text-white p-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="flex-1 overflow-y-auto py-4 px-3">
+    <a href="../index.html#hero" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="font-semibold text-sm">Home</span>
+    </a>
+    <div class="drawer-accordion">
+      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+        <div class="flex items-center gap-4"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span class="font-semibold text-sm">About Us</span></div>
+        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="drawer-acc-panel hidden pl-12 pb-1">
+        <a href="../about/ourStory.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
+        <a href="../about/howWeWork.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
+        <a href="../about/ourPartners.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Partners</a>
+      </div>
+    </div>
+    <div class="drawer-accordion">
+      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+        <div class="flex items-center gap-4"><svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg><span class="font-semibold text-sm">Projects</span></div>
+        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="drawer-acc-panel hidden pl-12 pb-1">
+        <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
+      </div>
+    </div>
+    <div class="drawer-accordion">
+      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+        <div class="flex items-center gap-4"><svg class="w-5 h-5 shrink-0" fill="none" stroke="#009a9b" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg><span class="font-semibold text-sm">Careers</span></div>
+        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="#009a9b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="drawer-acc-panel hidden pl-12 pb-1">
+        <a href="../careers/internship.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Internship / On-the-Job Training</a>
+        <a href="../careers/engineering.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Engineering</a>
+        <a href="../careers/finance.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Finance</a>
+        <a href="../careers/logistics.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Logistics</a>
+        <a href="../careers/marketing.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Marketing</a>
+        <a href="../careers/management.html" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Management</a>
+      </div>
+    </div>
+  </nav>
+  <a href="../index.html#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#009a9b] px-4 py-3 text-sm font-semibold text-white hover:bg-[#EBE33B] hover:text-slate-900 transition-colors">Contact Us</a>
+</div>
+
+<script>
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const closeBtn = document.getElementById("drawerCloseBtn");
+  const drawer = document.getElementById("mobileDrawer");
+  const overlay = document.getElementById("drawerOverlay");
+  function openDrawer() { drawer.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); document.body.style.overflow = "hidden"; }
+  function closeDrawer() { drawer.classList.add("-translate-x-full"); overlay.classList.add("hidden"); document.body.style.overflow = ""; }
+  menuBtn.addEventListener("click", openDrawer);
+  closeBtn.addEventListener("click", closeDrawer);
+  overlay.addEventListener("click", closeDrawer);
+  drawer.querySelectorAll(".drawer-link").forEach(link => link.addEventListener("click", closeDrawer));
+  drawer.querySelectorAll(".drawer-acc-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const panel = btn.nextElementSibling;
+      const chevron = btn.querySelector(".acc-chevron");
+      panel.classList.toggle("hidden");
+      chevron.style.transform = panel.classList.contains("hidden") ? "" : "rotate(180deg)";
     });
-  </script>
+  });
+</script>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="relative h-[420px] overflow-hidden bg-slate-900">
   <img src="../assets/images/LimestoneMining.jpeg" class="w-full h-full object-cover opacity-60" onerror="this.style.display='none'" />
   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
   <div class="absolute bottom-0 left-0 right-0 px-6 pb-10 max-w-7xl mx-auto">
-    <div class="flex items-center gap-2 text-xs text-white/60 mb-4 flex-wrap">
-      <span class="text-white/80">Limestone Mine Sizing Plant Automation</span>
-    </div>
-    <span class="inline-block text-white text-xs font-bold uppercase tracking-widest px-3 py-1 mb-4" style="background:#009a9b; border-radius:2px;">Greenfield Automation · Mining</span>
-    <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">Limestone Mine<br/>Sizing Plant Automation</h1>
-    <div class="flex flex-wrap items-center gap-4 text-sm text-white/70 mt-4">
-      <span><span class="font-semibold text-white">Duration:</span> Jan – Oct 2018 (Phase 1)</span>
+    <span class="inline-block text-white text-xs font-bold uppercase tracking-widest px-3 py-1 mb-4" style="background:#009a9b; border-radius:2px;">Greenfield Process Control Engineering for the Mining Industry</span>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">Limestone Mine Sizing Plant Automation</h1>
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/70 mt-4">
+      <span><span class="font-semibold text-white">Client Industry:</span> Mining &amp; Aggregates</span>
+      <span class="text-white/30">|</span>
+      <span><span class="font-semibold text-white">Project Duration:</span> January – October 2018</span>
+      <span class="text-white/30">|</span>
+      <span><span class="font-semibold text-white">System Integrator:</span> PLC Systems Technik, Inc.</span>
       <span class="text-white/30">|</span>
       <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>Completed
@@ -246,126 +229,176 @@
   <!-- ── MAIN COLUMN ── -->
   <div class="lg:col-span-2 space-y-12">
 
-    <!-- Overview -->
+    <!-- Project Overview -->
     <div class="fade-up space-y-4">
       <div class="section-label">Project Overview</div>
       <p class="text-lg leading-relaxed text-slate-600">
-        Watchdog Automation successfully engineered and implemented a complete automation and SCADA system for a limestone mine sizing plant — delivering a modern control architecture designed to support reliable and efficient mineral processing operations from the ground up.
+        PLC Systems Technik, Inc. successfully engineered and implemented a complete automation and SCADA system for a limestone mine sizing plant, delivering a modern control architecture designed to support reliable and efficient mineral processing operations.
       </p>
       <p class="text-lg leading-relaxed text-slate-600">
-        The project was executed as a full greenfield automation deployment, covering every layer of the control system: PLC engineering, industrial networking infrastructure, instrumentation integration, and supervisory control for the plant's crushing and material sizing operations. Mining environments present unique automation challenges due to dust, vibration, large mechanical equipment, and geographically distributed process equipment. The system was therefore engineered with robust multi-protocol communication, high hardware reliability, and centralized operational visibility as core design requirements.
+        The project involved the design and deployment of the entire automation system from the ground up, covering PLC engineering, industrial networking, instrumentation integration, and supervisory control for the plant's crushing and material sizing operations.
       </p>
-    </div>
-
-    <!-- Scope tags -->
-    <div class="fade-up space-y-3">
-      <div class="section-label">Project Scope</div>
-      <div class="flex flex-wrap gap-2">
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Greenfield PLC Engineering</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">SCADA Development</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Industrial Networking</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Instrumentation Integration</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Multi-Protocol Field Integration</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Mine Site Expansion</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Fiber Optic Network</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Alarm Management</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Historical Trending</span>
-        <span class="px-3 py-1.5 bg-slate-100 text-slate-700 font-semibold text-sm" style="border-radius:3px;">Commissioning &amp; Handover</span>
-      </div>
-    </div>
-
-    <!-- Project Phases -->
-    <div class="fade-up space-y-8">
-      <div class="section-label">Project Phases</div>
-
-      <!-- Phase 1 -->
-      <div class="border-l-2 border-[#009a9b] pl-6 space-y-4">
-        <div>
-          <div class="phase-title">Phase 1 — Sizing Plant Automation</div>
-          <div class="phase-date">January – October 2018</div>
-        </div>
-        <p class="text-lg leading-relaxed text-slate-600">
-          The control system for the sizing plant was built around the <strong class="text-slate-800">Siemens ET200SP distributed PLC platform</strong>, selected for its compact design, modular architecture, and powerful processing capabilities suited to industrial process automation in demanding environments.
-        </p>
-        <p class="text-lg leading-relaxed text-slate-600">
-          Supervisory monitoring and plant operation were implemented using <strong class="text-slate-800">Siemens WinCC Professional SCADA</strong>, managing approximately <strong class="text-slate-800">4,649 Power tags</strong> across all major plant systems. The SCADA environment provides operators with real-time plant visualization, alarm management, historical trending, and operational diagnostics — enabling efficient monitoring and control of production activities from a centralized interface.
-        </p>
-        <div class="text-xs font-bold uppercase tracking-widest text-slate-400 pt-1">Equipment &amp; Systems Covered</div>
-        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-3 mt-1">
-          <div class="flex items-start gap-2.5 text-lg text-slate-600 fade-left delay-100"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Limestone crushers and feeders</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600 fade-left delay-200"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Conveyor systems and transfer points</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600 fade-left delay-300"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Screening and sizing equipment</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600 fade-left delay-400"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Material flow monitoring systems</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600 fade-left delay-500"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Process interlocks and alarm systems</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600 fade-left delay-600"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#009a9b] shrink-0"></span>Motor and drive control monitoring</div>
-        </div>
-      </div>
-
-      <!-- Phase 2 -->
-      <div class="border-l-2 border-slate-200 pl-6 space-y-4">
-        <div>
-          <div class="phase-title">Phase 2 — Mine Site Expansion</div>
-          <div class="phase-date">Two Years After Phase 1 Commissioning</div>
-        </div>
-        <p class="text-lg leading-relaxed text-slate-600">
-          Following the successful completion of Phase 1, Watchdog Automation was engaged again to extend the automation architecture across the broader mine site — covering the extraction and material handling areas that feed into the sizing plant. The mine site automation system scope is currently <strong class="text-slate-800">to be determined</strong> as engineering and design activities are ongoing.
-        </p>
-        <p class="text-lg leading-relaxed text-slate-600">
-          A dedicated <strong class="text-slate-800">Siemens WinCC Professional SCADA</strong> system was developed for mine site operations and engineered to operate as an integrated extension of the original sizing plant system. Both SCADA environments communicate through a <strong class="text-slate-800">PROFINET-based industrial Ethernet network over fiber optic infrastructure</strong>, ensuring reliable high-speed communication between the plant processing systems and mining operations.
-        </p>
-        <div class="text-xs font-bold uppercase tracking-widest text-slate-400 pt-1">Integrated Architecture Enables</div>
-        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-3 mt-1">
-          <div class="flex items-start gap-2.5 text-lg text-slate-600"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>Centralized monitoring of plant and mining operations</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>Coordinated control across extraction and processing</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>Improved visibility across the full production chain</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>Enhanced diagnostics and maintenance planning</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>Scalable infrastructure for future system expansion</div>
-          <div class="flex items-start gap-2.5 text-lg text-slate-600"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>Reliable multi-vendor field device integration</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Technical Details -->
-    <div class="fade-up space-y-4">
-      <div class="section-label">Technical Details</div>
-      <div class="rounded-xl border border-slate-200 overflow-hidden">
-        <div class="tech-row px-4"><div class="tech-key">PLC Platform</div><div class="tech-val">Siemens ET200SP Distributed PLC</div></div>
-        <div class="tech-row px-4"><div class="tech-key">SCADA</div><div class="tech-val">Siemens WinCC Professional (Plant &amp; Mine Site)</div></div>
-        <div class="tech-row px-4"><div class="tech-key">Power Tags</div><div class="tech-val">~236 tags across all major plant systems</div></div>
-        <div class="tech-row px-4"><div class="tech-key">Network</div><div class="tech-val">PROFINET industrial Ethernet over fiber optic infrastructure</div></div>
-        <div class="tech-row px-4"><div class="tech-key">Protocols</div><div class="tech-val">PROFINET, PROFIBUS, AS-i, RS485 Serial</div></div>
-        <div class="tech-row px-4"><div class="tech-key">Deliverable</div><div class="tech-val">Greenfield automation system, SCADA, multi-protocol field integration, commissioning and handover</div></div>
-      </div>
-    </div>
-
-    <!-- Communication Protocols -->
-    <div class="fade-up space-y-4">
-      <div class="section-label">Communication Protocols</div>
       <p class="text-lg leading-relaxed text-slate-600">
-        The system integrates field devices across four industrial communication protocols, enabling seamless integration of equipment from different vendors across the plant and mine site.
+        Mining environments present unique automation challenges due to dust, vibration, large mechanical equipment, and geographically distributed process equipment. The automation system was therefore engineered to provide robust communication, high reliability, and centralized operational visibility.
       </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    </div>
+
+    <!-- Automation Platform Architecture -->
+    <div class="fade-up space-y-4">
+      <div class="section-label">Automation Platform Architecture</div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        The control system for the sizing plant was built around the Siemens ET200SP distributed PLC platform, selected for its compact design, modular architecture, and powerful processing capabilities suitable for industrial process automation.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        The system integrates field devices across multiple industrial communication protocols, including:
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
         <div class="border-l-2 border-[#009a9b] pl-3 py-2">
           <div class="protocol-num">01</div>
           <div class="protocol-name">PROFINET</div>
-          <div class="protocol-desc">High-speed industrial Ethernet</div>
+          <div class="protocol-desc">High-speed industrial Ethernet communication</div>
         </div>
         <div class="border-l-2 border-[#009a9b] pl-3 py-2">
           <div class="protocol-num">02</div>
           <div class="protocol-name">PROFIBUS</div>
-          <div class="protocol-desc">Legacy &amp; distributed devices</div>
+          <div class="protocol-desc">Fieldbus communication for legacy and distributed devices</div>
         </div>
         <div class="border-l-2 border-[#009a9b] pl-3 py-2">
           <div class="protocol-num">03</div>
           <div class="protocol-name">AS-i</div>
-          <div class="protocol-desc">Distributed sensors &amp; actuators</div>
+          <div class="protocol-desc">Integration of distributed sensors and actuators</div>
         </div>
         <div class="border-l-2 border-[#009a9b] pl-3 py-2">
           <div class="protocol-num">04</div>
           <div class="protocol-name">RS485 Serial</div>
-          <div class="protocol-desc">Specialized field instruments</div>
+          <div class="protocol-desc">Communication with specialized field equipment and instrumentation</div>
         </div>
       </div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        This multi-protocol architecture enabled seamless integration of equipment from different vendors across the plant.
+      </p>
+    </div>
+
+    <!-- SCADA System & Process Monitoring -->
+    <div class="fade-up space-y-4">
+      <div class="section-label">SCADA System &amp; Process Monitoring</div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        Supervisory monitoring and plant operation were implemented using Siemens WinCC Professional SCADA, providing operators with a centralized interface to monitor and control plant operations.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        The sizing plant SCADA system manages approximately 4,649 Power tags, covering key mining process equipment such as:
+      </p>
+      <div class="sys-grid">
+        <div class="sys-card"><span class="sys-card-dot"></span>Limestone crushers and feeders</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Conveyor systems and transfer points</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Screening and sizing equipment</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Material flow monitoring systems</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Process interlocks and alarm systems</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Motor and drive control monitoring</div>
+      </div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        The SCADA environment provides operators with real-time plant visualization, alarm management, historical trending, and operational diagnostics, enabling efficient monitoring of production activities.
+      </p>
+    </div>
+
+    <!-- Expansion -->
+    <div class="fade-up space-y-4">
+      <div class="section-label">Expansion: Integrated Mine Site Automation System</div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        Two years after the successful commissioning of the sizing plant automation system, PLC Systems Technik was again engaged to expand the automation architecture to include the Mine Site Automation System, further extending digital control and monitoring across the mining operation.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        The mine site automation system includes 247 I/O signals, covering field instrumentation, equipment monitoring, and process control across the extraction and material handling areas of the site.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        A new SCADA system was developed using Siemens WinCC Professional, providing supervisory monitoring and control of the mine site operations.
+      </p>
+    </div>
+
+    <!-- Integrated Plant & Mine Automation Architecture -->
+    <div class="fade-up space-y-4">
+      <div class="section-label">Integrated Plant &amp; Mine Automation Architecture</div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        The mine site system was engineered to operate as an integrated extension of the original sizing plant automation system.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        Both SCADA environments communicate through a PROFINET-based industrial Ethernet network over fiber optic infrastructure, ensuring reliable high-speed communication between the plant processing systems and the mining operations.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        This integrated architecture enables:
+      </p>
+      <div class="pill-list mt-2">
+        <div class="pill-item">Centralized monitoring of plant and mining operations</div>
+        <div class="pill-item">Coordinated control between extraction and processing systems</div>
+        <div class="pill-item">Improved operational visibility across the entire production chain</div>
+        <div class="pill-item">Enhanced diagnostics and maintenance planning</div>
+      </div>
+    </div>
+
+    <!-- Automation Technology Stack -->
+    <div class="fade-up space-y-4">
+      <div class="section-label">Automation Technology Stack</div>
+      <div class="pill-list">
+        <div class="pill-item">
+          <div class="pill-item-body">
+            <span class="pill-item-title">PLC Platform</span>
+            <span class="pill-item-desc">Siemens ET200SP Distributed Controller</span>
+          </div>
+        </div>
+        <div class="pill-item">
+          <div class="pill-item-body">
+            <span class="pill-item-title">SCADA Systems</span>
+            <span class="pill-item-desc">Siemens WinCC Professional</span>
+          </div>
+        </div>
+        <div class="pill-item">
+          <div class="pill-item-body">
+            <span class="pill-item-title">Industrial Networks</span>
+            <span class="pill-item-desc">PROFINET Fiber Optic Network</span>
+          </div>
+        </div>
+        <div class="pill-item">
+          <div class="pill-item-body">
+            <span class="pill-item-title">Field Communication Protocols</span>
+            <span class="pill-item-desc">PROFINET · PROFIBUS · AS-i · RS485 Serial Communication</span>
+          </div>
+        </div>
+        <div class="pill-item">
+          <div class="pill-item-body">
+            <span class="pill-item-title">Automation Scope</span>
+            <span class="pill-item-desc">Sizing Plant SCADA: 4,649 Power tags &nbsp;·&nbsp; Mine Site Automation System: 236 Power tags</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delivering Automation for the Mining Industry -->
+    <div class="fade-up space-y-4">
+      <div class="section-label">Delivering Automation for the Mining Industry</div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        Through this project, PLC Systems Technik delivered a modern, scalable automation platform capable of supporting the demanding operational requirements of mining and mineral processing operations.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        The integrated automation architecture now provides the mining facility with:
+      </p>
+      <div class="sys-grid mt-2">
+        <div class="sys-card"><span class="sys-card-dot"></span>Improved plant visibility and operational control</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Reliable integration of multi-vendor field equipment</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Centralized monitoring of plant and mining operations</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Scalable infrastructure for future system expansion</div>
+        <div class="sys-card"><span class="sys-card-dot"></span>Enhanced diagnostics and maintenance capabilities</div>
+      </div>
+    </div>
+
+    <!-- Engineering Automation for Heavy Industry -->
+    <div class="fade-up space-y-4">
+      <div class="section-label">Engineering Automation for Heavy Industry</div>
+      <p class="text-lg leading-relaxed text-slate-600">
+        This project highlights PLC Systems Technik's capability to design and deploy greenfield automation systems for mining and mineral processing facilities, integrating PLC control systems, SCADA platforms, industrial networks, and field instrumentation into a unified automation architecture.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-600">
+        By combining deep expertise in industrial automation, process control, and system integration, PLC Systems Technik continues to support the mining industry with reliable and future-ready automation solutions.
+      </p>
     </div>
 
     <!-- Back link -->
@@ -381,13 +414,17 @@
   <!-- ── SIDEBAR ── -->
   <div class="space-y-5 fade-up delay-200 sidebar-sticky">
 
-    <!-- Project details -->
+    <!-- Project Details -->
     <div class="border border-slate-200 p-6 space-y-4 rounded-xl">
       <div class="sidebar-section-label">Project Details</div>
       <div class="space-y-3">
         <div class="flex justify-between gap-4 border-b border-slate-100 pb-3">
-          <span class="sidebar-label">Category</span>
-          <span class="sidebar-value">Greenfield Automation</span>
+          <span class="sidebar-label">Client Industry</span>
+          <span class="sidebar-value">Mining &amp; Aggregates</span>
+        </div>
+        <div class="flex justify-between gap-4 border-b border-slate-100 pb-3">
+          <span class="sidebar-label">System Integrator</span>
+          <span class="sidebar-value" style="text-align:right; font-size:0.8rem;">PLC Systems Technik, Inc.</span>
         </div>
         <div class="flex justify-between gap-4 border-b border-slate-100 pb-3">
           <span class="sidebar-label">Duration</span>
@@ -403,33 +440,17 @@
         </div>
         <div class="flex justify-between gap-4 border-b border-slate-100 pb-3">
           <span class="sidebar-label">Plant SCADA Tags</span>
-          <span class="sidebar-value">~4,649</span>
+          <span class="sidebar-value">4,649</span>
+        </div>
+        <div class="flex justify-between gap-4 border-b border-slate-100 pb-3">
+          <span class="sidebar-label">Mine Site I/O</span>
+          <span class="sidebar-value">236 Power tags</span>
         </div>
         <div class="flex justify-between gap-4">
           <span class="sidebar-label">Status</span>
           <span class="inline-flex items-center gap-1.5 font-bold text-emerald-600" style="font-size:0.9rem;">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>Completed
           </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scale callout -->
-    <div class="border border-slate-200 p-6 space-y-3 rounded-xl bg-slate-50">
-      <div class="sidebar-section-label">System Scale</div>
-      <p style="font-size:0.9rem; color:#475569; line-height:1.65;">A full greenfield deployment spanning two phases — sizing plant automation through to integrated mine site control.</p>
-      <div class="text-center bg-[#009a9b] text-white rounded-lg p-4 mt-2">
-        <div style="font-size:clamp(1.4rem, 4vw, 2rem); font-weight:800; line-height:1.2;">4,649</div>
-        <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; opacity:0.85; margin-top:6px;">SCADA Power Tags</div>
-      </div>
-      <div class="grid grid-cols-2 gap-2 mt-1">
-        <div class="text-center bg-white border border-slate-200 rounded-lg p-3">
-          <div style="font-size:0.85rem; font-weight:800; color:#009a9b;">2 Phases</div>
-          <div style="font-size:0.7rem; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.08em;">Plant + Mine</div>
-        </div>
-        <div class="text-center bg-white border border-slate-200 rounded-lg p-3">
-          <div style="font-size:0.85rem; font-weight:800; color:#009a9b;">4 Protocols</div>
-          <div style="font-size:0.7rem; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.08em;">Field Integration</div>
         </div>
       </div>
     </div>
@@ -475,7 +496,7 @@
       </div>
     </div>
     <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
-      <div>© <span id="yr"></span> Watchdog Automation OPC. All rights reserved.</div>
+      <div>© <span id="yr"></span> PLC Systems Technik Inc. All rights reserved.</div>
       <div class="flex gap-6">
         <a href="../index.html#projects" class="hover:text-white">Projects</a>
         <a href="../index.html#contact" class="hover:text-white">Contact</a>
@@ -495,10 +516,7 @@
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
         });
       },
       { threshold: 0.12 }
